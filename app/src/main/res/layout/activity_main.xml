@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:background="@color/white"
+tools:context=".activity.MainActivity">
+
+<!--    搜索栏-->
+        <LinearLayout
+            android:id="@+id/constraintLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/blue"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="310dp"
+                android:layout_height="35dp"
+                android:orientation="horizontal"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/sousuo"
+                    android:background="@color/white"
+                    android:layout_marginStart="8dp" />
+
+                <EditText
+                    android:id="@+id/search_news_input"
+                    android:layout_width="240dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:textColor="@color/black"
+                    android:imeOptions="actionSearch"
+                    android:textSize="16sp"
+                    tools:ignore="RtlSymmetry,TouchTargetSizeCheck" />
+            </LinearLayout>
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+<!--        轮播图-->
+        <com.youth.banner.Banner
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            app:banner_radius="10sp" />
+
+<!--        服务列表-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/service_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="14dp"/>
+
+<!--        新闻列表-->
+        <LinearLayout
+            android:id="@+id/news_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="新闻专栏"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/news_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp" />
+        </LinearLayout>
+</LinearLayout>
+
+<!--    底部导航栏-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/blue"
+        android:orientation="horizontal">
+
+<!--        首页-->
+        <LinearLayout
+            android:id="@+id/shouye"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/shouye"/>
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:text="首页"
+                android:gravity="center"/>
+        </LinearLayout>
+
+<!--        服务-->
+        <LinearLayout
+            android:id="@+id/fuwu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/service"/>
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:text="服务"
+                android:gravity="center"/>
+        </LinearLayout>
+
+<!--        新闻-->
+        <LinearLayout
+            android:id="@+id/xinwen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/news"/>
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:text="新闻"
+                android:gravity="center"/>
+        </LinearLayout>
+
+<!--        活动-->
+        <LinearLayout
+            android:id="@+id/huodong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/huodong"/>
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:text="活动"
+                android:gravity="center"/>
+        </LinearLayout>
+
+<!--        个人-->
+        <LinearLayout
+            android:id="@+id/geren"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/geren"/>
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:text="个人"
+                android:gravity="center"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

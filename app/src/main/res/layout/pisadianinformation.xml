@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".activity.PisadianinfomationActivity">
+
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!--        图片-->
+        <ImageView
+            android:id="@+id/img_pisa"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_launcher_background"/>
+
+        <!--        右侧详情-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical">
+
+            <!--            名称-->
+            <TextView
+                android:id="@+id/name_pisa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="超值特惠双拼炸鸡套餐"
+                android:textSize="20dp"
+                android:textColor="@color/black" />
+
+            <!--            月售-行-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="月售"
+                    android:textSize="10dp"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/xiaoliang_pisa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="154"
+                    android:textSize="10dp"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <!--            价格-行-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="¥"
+                        android:textSize="20dp"
+                        android:layout_marginRight="20dp"
+                        android:textColor="#ff0000"/>
+                    <TextView
+                        android:id="@+id/price_pisa"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20.88"
+                        android:textSize="20dp"
+                        android:textColor="#ff0000"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <ImageView
+            android:id="@+id/minus"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/jian"
+            android:layout_marginRight="10dp"
+            android:background="@color/yellow" />
+        <EditText
+            android:id="@+id/shuliang"
+            android:layout_width="10dp"
+            android:layout_height="20dp"
+            android:text="0"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black"/>
+        <ImageView
+            android:id="@+id/add"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/tianjia"
+            android:background="@color/yellow"
+            android:layout_marginRight="50dp"/>
+    </LinearLayout>
+
+</LinearLayout>

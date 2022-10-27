@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="cn.itcast.smartcity02">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Design.NoActionBar"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DitiegonggaoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ShiwuzhaolingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GrainchengchekainformationActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".GrainchengchekaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChengchekaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DiyigeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FindworkActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditAddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateAddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MyAddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.DingdanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.FirstfoodActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.PisadianinfomationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MianguanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.HanbaoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.TiandianActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MeishiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.HuodongActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.FindhouseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.TakeawayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MovieActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SubwayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ParkActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.TrafficActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.LivingPayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ApponitmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.BusActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.AllService"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ServiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.NewsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.NewsmainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.YijianfankuiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.TotaldingdanlistActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.PersonInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.PersonCenterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.login"
+            android:exported="true" />
+        <activity
+            android:name=".activity.IntroductoryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.StartActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

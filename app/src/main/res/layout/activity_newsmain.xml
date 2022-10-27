@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/new_title_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:text="标题" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <!--            点赞-->
+            <ImageView
+                android:id="@+id/dianzan_image_main"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="28dp" />
+            <TextView
+                android:id="@+id/dianzan_count_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:textColor="@color/black"
+                android:text="555"/>
+            <!--                评论-->
+            <ImageView
+                android:id="@+id/pinglun_image_main"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="28dp" />
+            <TextView
+                android:id="@+id/pinglun_count_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:textColor="@color/black"
+                android:text="444"/>
+
+            <TextView
+                android:id="@+id/date_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/teal_700"
+                android:textSize="18sp"
+                android:layout_marginTop="28dp"
+                android:layout_marginLeft="60dp"
+                android:text="2021年4月24日" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/image_main"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+</LinearLayout>
