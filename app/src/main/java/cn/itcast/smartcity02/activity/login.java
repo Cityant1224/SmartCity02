@@ -61,10 +61,10 @@ public class login extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void initView() {
-        edt_name = (EditText) findViewById(R.id.username);
-        edt_psw = (EditText) findViewById(R.id.password);
-        btn_login = (Button) findViewById(R.id.log_in);
-        btn_register = (Button) findViewById(R.id.register);
+        edt_name = findViewById(R.id.username);
+        edt_psw = findViewById(R.id.password);
+        btn_login = findViewById(R.id.log_in);
+        btn_register = findViewById(R.id.register);
 
         btn_login.setOnClickListener(this);
         btn_register.setOnClickListener(this);
@@ -141,6 +141,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
                             //保存token
                             //登录成功，跳到个人中心界面
                             Message message = handler.obtainMessage();
+
                             message.obj = token;
                             handler.sendMessage(message);
                             runOnUiThread(new Runnable() {

@@ -48,6 +48,9 @@ public class PisadianinformationAdapter extends RecyclerView.Adapter<Pisadianinf
         return pisaBeans.size();
     }
 
+
+
+
     public class PisadianinformationHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private ImageView image;
         private TextView name;
@@ -68,7 +71,7 @@ public class PisadianinformationAdapter extends RecyclerView.Adapter<Pisadianinf
 
         @Override
         public void onClick(View v) {
-            if (myListener!=null){
+            if (myListener != null){
                 myListener.onItemClick(v,getPosition());
             }
         }

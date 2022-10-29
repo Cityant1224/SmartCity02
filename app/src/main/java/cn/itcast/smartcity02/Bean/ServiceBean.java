@@ -1,22 +1,8 @@
 package cn.itcast.smartcity02.Bean;
 import java.util.List;
 
-/**
- * @ProjectName: smartcity
- * @Package: com.example.smartcity.bean
- * @ClassName: ServiceBean
- * @Description:
- * @Author: liyingxia
- * @CreateDate: 2021/3/14 14:03
- */
-public class ServiceBean {
 
-    /**
-     * total : 6
-     * rows : [{"searchValue":null,"createBy":null,"createTime":"2020-10-12 18:17:23","updateBy":null,"updateTime":"2020-10-19 16:56:47","remark":null,"params":{},"id":2,"serviceName":"城市地铁","serviceDesc":"城市地铁路线","serviceType":"1","imgUrl":"/profile/ditie.png","pid":1,"isRecommend":1,"link":"metro_query/index"},{"searchValue":null,"createBy":null,"createTime":"2020-10-12 18:17:33","updateBy":null,"updateTime":"2020-10-19 16:56:47","remark":null,"params":{},"id":3,"serviceName":"智慧巴士","serviceDesc":"智慧巴士站点","serviceType":"1","imgUrl":"/profile/bus.png","pid":1,"isRecommend":1,"link":"bus_query/custom_shuttle"},{"searchValue":null,"createBy":null,"createTime":"2020-10-12 18:17:58","updateBy":null,"updateTime":"2020-10-19 16:56:47","remark":null,"params":{},"id":5,"serviceName":"门诊预约","serviceDesc":"快捷方便不要出门也能门诊预约","serviceType":"1","imgUrl":"/profile/menzheng.png","pid":1,"isRecommend":1,"link":"outpatient/hospitalList"},{"searchValue":null,"createBy":null,"createTime":"2020-10-12 18:18:21","updateBy":null,"updateTime":"2020-10-19 16:56:47","remark":null,"params":{},"id":7,"serviceName":"生活缴费","serviceDesc":"不要出门也能缴费","serviceType":"2","imgUrl":"/profile/live.png","pid":1,"isRecommend":1,"link":"living_expenses/index"},{},{"searchValue":null,"createBy":null,"createTime":"2020-10-23 16:17:56","updateBy":null,"updateTime":"2020-10-23 16:17:58","remark":null,"params":{},"id":17,"serviceName":"停车场","serviceDesc":"查询停车场","serviceType":"3","imgUrl":"/profile/pack.png","pid":1,"isRecommend":1,"link":"park/index"}]
-     * code : 200
-     * msg : 查询成功
-     */
+public class ServiceBean {
 
     private int total;
     private int code;
@@ -61,24 +47,6 @@ public class ServiceBean {
 
 
     public static class RowsBean {
-        /**
-         * searchValue : null
-         * createBy : null
-         * createTime : 2020-10-12 18:17:23
-         * updateBy : null
-         * updateTime : 2020-10-19 16:56:47
-         * remark : null
-         * params : {}
-         * id : 2
-         * serviceName : 城市地铁
-         * serviceDesc : 城市地铁路线
-         * serviceType : 1
-         * imgUrl : /profile/ditie.png
-         * pid : 1
-         * isRecommend : 1
-         * link : metro_query/index
-         */
-
         private Object searchValue;
         private Object createBy;
         private String createTime;

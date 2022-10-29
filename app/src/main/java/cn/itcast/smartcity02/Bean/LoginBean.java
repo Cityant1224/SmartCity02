@@ -41,7 +41,7 @@ public class LoginBean {
     @Override
     public String toString() {
         return "UserLogin{" +
-                "msg='" + msg + '\'' +
+                " msg='" + msg + '\'' +
                 ", code=" + code +
                 ", token='" + token + '\'' +
                 '}';

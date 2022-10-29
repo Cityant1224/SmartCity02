@@ -4,10 +4,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class IntroductoryAdapter extends PagerAdapter {
-    private List<View> list;
+    private List<View> list ;
 
     public IntroductoryAdapter(List<View> list) {
         this.list = list;

@@ -3,6 +3,6 @@
     android:id="@+id/introductory1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/ic_launcher">
+    android:background="@mipmap/wallpaper1">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

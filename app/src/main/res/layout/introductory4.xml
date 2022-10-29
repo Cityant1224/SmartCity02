@@ -2,28 +2,29 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_200">
+    android:background="@mipmap/wallpaper4">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
+
         <Button
             android:id="@+id/goto_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:text="去登录"
-            android:textSize="20dp"
-            android:layout_gravity="bottom"/>
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/getin_main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="进去主页"
-            android:textSize="20dp"
             android:layout_alignParentRight="true"
-            android:layout_gravity="bottom"/>
+            android:layout_gravity="bottom"
+            android:text="进去主页"
+            android:textSize="20dp" />
     </RelativeLayout>
 
 </RelativeLayout>

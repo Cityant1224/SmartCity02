@@ -8,11 +8,35 @@
     android:background="@color/white"
     tools:context=".activity.SubwayActivity">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="停哪儿"
-        android:textColor="@color/black"
-        android:textSize="50dp"/>
+        android:layout_height="40dp"
+        android:background="@color/blue">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="停哪儿"
+            android:layout_weight="1"
+            android:textSize="20dp"
+            android:textColor="@color/black"/>
+        <ImageView
+            android:id="@+id/guanbi_park"
+            android:layout_weight="5"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:src="@mipmap/guanbi" />
+    </LinearLayout>
 
+   <com.youth.banner.Banner
+       android:id="@+id/banner_park"
+       android:layout_width="match_parent"
+       android:layout_height="150dp"
+       android:layout_margin="20dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/park_park"
+        android:layout_margin="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>

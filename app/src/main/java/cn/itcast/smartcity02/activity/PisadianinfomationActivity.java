@@ -138,6 +138,11 @@ public class PisadianinfomationActivity extends AppCompatActivity {
 
 
 
+
+
+
+
+
         //购物车点击方法
              public static void onPopup() {
                 pw.showAtLocation(popupLayout, Gravity.BOTTOM,0,0);
@@ -165,8 +170,9 @@ public class PisadianinfomationActivity extends AppCompatActivity {
                                 @Override
                                 public void run() {
                                     Gson gson = new Gson();
+                                    //将数据解析
                                     PisaBean foodlistbean = gson.fromJson(result, PisaBean.class);
-                                    Message msg = new Message();
+                                    Message msg = handler.obtainMessage();
                                     msg.what = 0;
                                     msg.obj = foodlistbean;
                                     handler.sendMessage(msg);

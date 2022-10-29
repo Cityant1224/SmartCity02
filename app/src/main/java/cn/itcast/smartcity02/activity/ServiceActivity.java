@@ -93,6 +93,7 @@ public class ServiceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service);
+
         service_recyclerview = findViewById(R.id.service_recyclerview);
         getServiceData();
     }
@@ -130,7 +131,6 @@ public class ServiceActivity extends AppCompatActivity {
                                 msg.what=0;
                                 msg.obj=serviceBean;
                                 handler.sendMessage(msg);
-                                Log.i("7777777777",serviceBean.toString());
                             }
                         });
                     }

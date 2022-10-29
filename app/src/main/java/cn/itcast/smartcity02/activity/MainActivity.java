@@ -1,67 +1,151 @@
 package cn.itcast.smartcity02.activity;
 
 
-import static java.security.AccessController.getContext;
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
 import com.youth.banner.Banner;
 import com.youth.banner.adapter.BannerImageAdapter;
 import com.youth.banner.holder.BannerImageHolder;
 import com.youth.banner.indicator.CircleIndicator;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.itcast.smartcity02.Bean.NewsMainBean;
+import cn.itcast.smartcity02.Bean.NewsBean;
+import cn.itcast.smartcity02.Bean.ServiceBean;
+import cn.itcast.smartcity02.FindworkActivity;
 import cn.itcast.smartcity02.R;
+import cn.itcast.smartcity02.adapter.NewsAdapter;
+import cn.itcast.smartcity02.adapter.RecycleServiceAdapter;
+import cn.itcast.smartcity02.utils.ApiConfig;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 
 public class MainActivity extends AppCompatActivity {
+    //服务列表
+    private RecyclerView service_recyclerview;
+    private RecycleServiceAdapter adapter;
+    private List<ServiceBean.RowsBean> rowsBeanList;
 
-    List<NewsMainBean> listData = new ArrayList<NewsMainBean>();    //界面数据
-    private RecyclerView mRecyclerView;                     //控件
+
+    //新闻列表
+    private List<NewsBean.RowsBean> newsBeanlist;
+    private NewsAdapter adapter2;
+    private RecyclerView news_recyclerview;
+
+
+    //服务列表
+    @SuppressLint("HandlerLeak")
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            super.handleMessage(msg);
+            if (msg.what==0) {
+                ServiceBean serviceBean = (ServiceBean) msg.obj;
+                rowsBeanList = serviceBean.getRows();
+                // 实例化adapter
+                adapter= new RecycleServiceAdapter(MainActivity.this,rowsBeanList);
+                // 设置布局管理器
+                service_recyclerview.setLayoutManager(new GridLayoutManager(MainActivity.this,4));
+                // 设置适配器
+                service_recyclerview.setAdapter(adapter);
+                // 设置item点击跳转事件 分别到对应的页面,在Intent中可以自己创建跳转的activity
+                adapter.setItemClickListener(new RecycleServiceAdapter.MyItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        String url = ApiConfig.BASE_API + "/" + rowsBeanList.get(position).getLink();
+                        Intent intent = null;
+                        if (position==0) {
+                            intent = new Intent(MainActivity.this, ParkActivity.class);
+                        }  else if (position==1) {
+                            intent = new Intent(MainActivity.this, SubwayActivity.class);
+                        }  else if (position==2) {
+                            intent = new Intent(MainActivity.this, BusActivity.class);
+                        }  else if (position==3) {
+                            intent = new Intent(MainActivity.this, ApponitmentActivity.class);
+                        }  else if (position==4) {
+                            intent = new Intent(MainActivity.this, TrafficActivity.class);
+                        }  else if (position==5) {
+                            intent = new Intent(MainActivity.this, LivingPayActivity.class);
+                        }  else if (position==6) {
+                            intent = new Intent(MainActivity.this, TakeawayActivity.class);
+                        }  else if (position==7) {
+                            intent = new Intent(MainActivity.this, FindhouseActivity.class);
+                        }  else if (position==8) {
+                            intent = new Intent(MainActivity.this, MovieActivity.class);
+                        }  else if (position==9) {
+                            intent = new Intent(MainActivity.this, FindworkActivity.class);
+                        }
+                        Bundle bundle = new Bundle();
+                        bundle.putString("title",rowsBeanList.get(position).getServiceName());
+                        bundle.putString("url",url);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+                    }
+                });
+            }
+        }
+    };
+
+
+    //新闻列表
+    @SuppressLint("HandlerLeak")
+    private Handler handler2 = new Handler() {
+        @Override
+        public void handleMessage(@NonNull Message msg2) {
+            super.handleMessage(msg2);
+            if (msg2.what == 0) {
+                NewsBean newsBean = (NewsBean) msg2.obj;
+                newsBeanlist = newsBean.getRows();
+                // 实例化adapter
+                adapter2 = new NewsAdapter(MainActivity.this, newsBeanlist);
+                // 设置布局管理器
+                news_recyclerview.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                // 设置适配器
+                news_recyclerview.setAdapter(adapter2);
+            }
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.news_recycler); //没有此行会造成空指针
-        //首页 新闻专栏item 的点击事件
-        mRecyclerView.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this,NewsActivity.class));
-        });
-        initview();
-    }
-
-    //初始化界面
-    public void initview() {
+        //初始化轮播图
         initbanner();
-
+        //初始化服务列表
+        service_recyclerview = findViewById(R.id.service_list);
         initservicelist();
-        mRecyclerView = findViewById(R.id.news_recycler);
-        //向组件设置布局格式
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        //向组件设置适配器
-        mainNewsAdapter  mainNewsadapter= new mainNewsAdapter();
-        mRecyclerView.setAdapter(mainNewsadapter);
+        //新闻recyclerview控件
+        news_recyclerview = findViewById(R.id.news_recycler);
+        //初始化新闻列表
         initnewslist();
-
+        //初始化导航栏
         inittab();
     }
+
 
     //轮播图
     List<String> stringList = new ArrayList<String>();
@@ -84,92 +168,101 @@ public class MainActivity extends AppCompatActivity {
                 .start();
     }
 
-    //新闻专栏
-    public void initnewslist(){
-            listData = new ArrayList<NewsMainBean>();
-            listData.add(new NewsMainBean("长视频斗不过",R.mipmap.news,"1",R.mipmap.news,"1","1",R.mipmap.news));
-            listData.add(new NewsMainBean("长视频斗不过",R.mipmap.news,"1",R.mipmap.news,"1","1",R.mipmap.news));
-            listData.add(new NewsMainBean("长视频斗不过",R.mipmap.news,"1",R.mipmap.news,"1","1",R.mipmap.news));
-            listData.add(new NewsMainBean("长视频斗不过",R.mipmap.news,"1",R.mipmap.news,"1","1",R.mipmap.news));
-    }
-
-    class mainNewsAdapter extends RecyclerView.Adapter<mainNewsAdapter.mainNewsHolder>{
-
-        @NonNull
-        @Override
-        public mainNewsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            //加载布局
-            mainNewsHolder holder = new mainNewsHolder(LayoutInflater.from(MainActivity.this)
-                    .inflate(R.layout.activity_newsmain,parent,false));
-
-            return holder;
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull mainNewsHolder holder, int position) {
-            NewsMainBean obj = listData.get(position);
-            holder.newstitle.setText(obj.getNewstitle());
-            holder.dianzan_count.setText(obj.getDianzan_count());
-            holder.dianzan_image.setImageResource(obj.getDianzan_image());
-            holder.pinglun_image.setImageResource(obj.getPinglun_image());
-            holder.pinglun_count.setText(obj.getPinglun_count());
-            holder.date.setText(obj.getDate());
-            holder.image.setImageResource(obj.getImage());
-        }
-
-        @Override
-        public int getItemCount() {
-            return listData.size();
-        }
-        class mainNewsHolder extends RecyclerView.ViewHolder{
-
-            public TextView newstitle;
-            public ImageView dianzan_image;
-            public TextView dianzan_count;
-            public ImageView pinglun_image;
-            public TextView pinglun_count;
-            public TextView date;
-            public ImageView image;
-
-            public mainNewsHolder(@NonNull View itemView) {
-                super(itemView);
-                newstitle = itemView.findViewById(R.id.new_title_main);
-                dianzan_image = itemView.findViewById(R.id.dianzan_image_main);
-                dianzan_count = itemView.findViewById(R.id.dianzan_count_main);
-                pinglun_image = itemView.findViewById(R.id.pinglun_image_main);
-                pinglun_count = itemView.findViewById(R.id.pinglun_count_main);
-                date = itemView.findViewById(R.id.date_main);
-                image = itemView.findViewById(R.id.image_main);
-            }
-        }
-    }
-
 
     //服务列表
     public void initservicelist() {
+        // 创建OkHttpClient对象
+        OkHttpClient client = new OkHttpClient();
+        // 创建 Request对象
+        Request request = new Request.Builder()
+                .url(ApiConfig.BASE_API+"/prod-api/api/service/list")
+                .build();
+        try {
+            // 回调
+            Call call = client.newCall(request);
+            // 异步请求
+            call.enqueue(new okhttp3.Callback() {
+                @Override
+                // 请求失败
+                public void onFailure(Call call, IOException e) {
+                    Log.i("onFailure",e.getMessage());
+                }
+                // 响应成功
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    if (response.isSuccessful()) {
+                        final String result = response.body().string();
+                        // runOnUiThread()用于更新UI
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Gson gson = new Gson();
+                                ServiceBean serviceBean = gson.fromJson(result,ServiceBean.class);
+                                Message msg = new Message();
+                                msg.what=0;
+                                msg.obj = serviceBean;
+                                handler.sendMessage(msg);
+                            }
+                        });
+                    }
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+
+    //新闻列表
+    public void initnewslist(){
+        OkHttpClient client2 = new OkHttpClient();
+        Request request2 = new Request.Builder()
+                .url(ApiConfig.BASE_API + "/prod-api/press/press/list")
+                .build();
+        try{
+            Call call2 =  client2.newCall(request2);
+            call2.enqueue(new Callback() {
+                @Override
+                public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                    Log.i("onFailure", e.getMessage());
+                }
+
+                @Override
+                public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                    if (response.isSuccessful()) {
+                        String result2 = response.body().string();
+                        Log.i("请求成功", result2);
+
+                        // runOnUiThread()用于更新UI
+                        runOnUiThread(() -> {
+                            Gson gson2 = new Gson();
+                            NewsBean newsBean = gson2.fromJson(result2, NewsBean.class);
+                            Message msg2 = new Message();
+                            msg2.what = 0;
+                            msg2.obj = newsBean;
+                            handler2.sendMessage(msg2);
+                        });
+                    }
+                }
+            });
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
     //菜单条
     public void inittab() {
-        //LinearLayout shouye = findViewById(R.id.shouye);
+        LinearLayout shouye = findViewById(R.id.shouye);
         LinearLayout xinwen = findViewById(R.id.xinwen);
         LinearLayout fuwu = findViewById(R.id.fuwu);
         LinearLayout huodong = findViewById(R.id.huodong);
         LinearLayout geren = findViewById(R.id.geren);
 
-
+        shouye.setOnClickListener( v -> startActivity(new Intent(MainActivity.this,MainActivity.class)));
         xinwen.setOnClickListener(v -> startActivity(new Intent(MainActivity.this,NewsActivity.class)));
         fuwu.setOnClickListener(v -> startActivity(new Intent(MainActivity.this,ServiceActivity.class)));
         huodong.setOnClickListener(v -> startActivity(new Intent(MainActivity.this,HuodongActivity.class)));
-        geren.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,login.class));//PersonCenterActivity
-
-            }
-        });
-
-        }
+        geren.setOnClickListener(v -> startActivity(new Intent(MainActivity.this,PersonCenterActivity.class)));
     }
+}

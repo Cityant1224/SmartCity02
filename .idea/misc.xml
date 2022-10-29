@@ -37,14 +37,16 @@
         <entry key="app/src/main/res/layout/activity_my_address.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_news.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_newsmain.xml" value="0.3227493286132812" />
-        <entry key="app/src/main/res/layout/activity_park.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/layout/activity_park.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_parkone.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/layout/activity_person_center.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_person_info.xml" value="0.3160955810546875" />
         <entry key="app/src/main/res/layout/activity_pisa.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/activity_pisadianinfomation.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_popup.xml" value="0.24166666666666667" />
-        <entry key="app/src/main/res/layout/activity_register.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_service.xml" value="0.14557037353515626" />
+        <entry key="app/src/main/res/layout/activity_shiwuzhaoling.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_shuangpin.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_start.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_subway.xml" value="0.165" />
@@ -68,6 +70,7 @@
         <entry key="app/src/main/res/layout/fragment_pisadiancai.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/fragment_pisapinglun.xml" value="0.165" />
         <entry key="app/src/main/res/layout/introductory1.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/introductory2.xml" value="0.12083333333333333" />
         <entry key="app/src/main/res/layout/introductory3.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/introductory4.xml" value="0.16875" />
         <entry key="app/src/main/res/layout/introdutory1.xml" value="0.16875" />
@@ -77,9 +80,10 @@
         <entry key="app/src/main/res/layout/main_news_items.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/main_service_items.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/myaddress_item.xml" value="0.2281463623046875" />
-        <entry key="app/src/main/res/layout/news_item.xml" value="0.286144578313253" />
+        <entry key="app/src/main/res/layout/news_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/newslist.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/newslist_main.xml" value="0.45714285714285713" />
+        <entry key="app/src/main/res/layout/park_item.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/pisadianinformation.xml" value="0.23823852539062507" />
         <entry key="app/src/main/res/layout/salerlist_item.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/subway_current_item.xml" value="0.13095238095238096" />

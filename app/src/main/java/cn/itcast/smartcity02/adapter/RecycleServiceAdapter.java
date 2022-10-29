@@ -25,11 +25,7 @@ public class RecycleServiceAdapter extends RecyclerView.Adapter<RecycleServiceAd
     private Context context;
     private MyItemClickListener mItemClickListener;
 
-    /**
-     * 构造方法 传入参数
-     * @param context
-     * @param rowsBeans
-     */
+
     public RecycleServiceAdapter(Context context,List<ServiceBean.RowsBean> rowsBeans) {
         this.rowsBeans = rowsBeans;
         this.context = context;
@@ -55,19 +51,18 @@ public class RecycleServiceAdapter extends RecyclerView.Adapter<RecycleServiceAd
 
     // 返回Item总条数
     @Override
-    public int getItemCount() {
-        // return 10;
-        return rowsBeans.size();
-    }
+    public int getItemCount() {return rowsBeans.size();}
 
     // 内部类，绑定控件
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView service_name;
         private ImageView service_img;
+
         private MyItemClickListener myListener;
 
         public MyViewHolder(@NonNull View view,MyItemClickListener myItemClickListener) {
             super(view);
+
             this.myListener = myItemClickListener;
             itemView.setOnClickListener(this);
 
@@ -77,6 +72,7 @@ public class RecycleServiceAdapter extends RecyclerView.Adapter<RecycleServiceAd
 
         @Override
         public void onClick(View view) {
+
             if (myListener!=null) {
                 myListener.onItemClick(view,getPosition());
             }
@@ -91,7 +87,6 @@ public class RecycleServiceAdapter extends RecyclerView.Adapter<RecycleServiceAd
     public void setItemClickListener(MyItemClickListener myItemClickListener){
         this.mItemClickListener = myItemClickListener;
     }
-
 }
 
 

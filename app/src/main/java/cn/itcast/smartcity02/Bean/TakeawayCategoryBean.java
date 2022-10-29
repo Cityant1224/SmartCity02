@@ -170,8 +170,18 @@ public class TakeawayCategoryBean{
         @Override
         public String toString() {
             return "RowsBean{" +
-                    "serviceName='" + themeName + '\'' +
+                    "searchValue='" + searchValue + '\'' +
+                    ", createBy='" + createBy + '\'' +
+                    ", createTime='" + createTime + '\'' +
+                    ", updateBy='" + updateBy + '\'' +
+                    ", updateTime='" + updateTime + '\'' +
+                    ", remark='" + remark + '\'' +
+                    ", params=" + params +
+                    ", id=" + id +
+                    ", themeName='" + themeName + '\'' +
+                    ", themeDesc='" + themeDesc + '\'' +
                     ", imgUrl='" + imgUrl + '\'' +
+                    ", sort='" + sort + '\'' +
                     '}';
         }
     }

@@ -18,6 +18,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activity.ParkoneActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
@@ -25,9 +28,6 @@
             android:exported="false" />
         <activity
             android:name=".ShiwuzhaolingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".GrainchengchekainformationActivity2"
             android:exported="false" />
         <activity
             android:name=".GrainchengchekaActivity"
@@ -132,13 +132,13 @@
             android:name=".activity.login"
             android:exported="true" />
         <activity
-            android:name=".activity.IntroductoryActivity"
+            android:name=".activity.StartActivity"
             android:exported="true" />
         <activity
             android:name=".activity.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".activity.StartActivity"
+            android:name=".activity.IntroductoryActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
