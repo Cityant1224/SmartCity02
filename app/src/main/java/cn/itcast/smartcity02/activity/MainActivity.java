@@ -29,7 +29,6 @@ import java.util.List;
 
 import cn.itcast.smartcity02.Bean.NewsBean;
 import cn.itcast.smartcity02.Bean.ServiceBean;
-import cn.itcast.smartcity02.FindworkActivity;
 import cn.itcast.smartcity02.R;
 import cn.itcast.smartcity02.adapter.NewsAdapter;
 import cn.itcast.smartcity02.adapter.RecycleServiceAdapter;

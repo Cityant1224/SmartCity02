@@ -2,26 +2,13 @@ package cn.itcast.smartcity02.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
-import cn.itcast.smartcity02.Bean.AddressBean;
-import cn.itcast.smartcity02.CreateAddressActivity;
-import cn.itcast.smartcity02.EditAddressActivity;
 import cn.itcast.smartcity02.R;
-import cn.itcast.smartcity02.adapter.AddressAdapter;
 
 public class MyAddressActivity extends AppCompatActivity {
 //    private List<AddressBean> mData = null;

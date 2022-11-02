@@ -1,4 +1,4 @@
-package cn.itcast.smartcity02;
+package cn.itcast.smartcity02.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import android.os.Message;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -24,7 +23,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 
 import cn.itcast.smartcity02.Bean.RegisterBean;
-import cn.itcast.smartcity02.activity.login;
+import cn.itcast.smartcity02.R;
 import cn.itcast.smartcity02.utils.ApiConfig;
 
 import okhttp3.Call;

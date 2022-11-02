@@ -1,4 +1,4 @@
-package cn.itcast.smartcity02;
+package cn.itcast.smartcity02.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.List;
 
 import cn.itcast.smartcity02.Bean.Subway_lineBean;
+import cn.itcast.smartcity02.R;
 import cn.itcast.smartcity02.adapter.Subway_lineAdapter;
 import okhttp3.Call;
 import okhttp3.Callback;

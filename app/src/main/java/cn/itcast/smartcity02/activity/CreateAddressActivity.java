@@ -1,4 +1,4 @@
-package cn.itcast.smartcity02;
+package cn.itcast.smartcity02.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +11,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import cn.itcast.smartcity02.activity.MyAddressActivity;
+import cn.itcast.smartcity02.R;
 
 public class CreateAddressActivity extends AppCompatActivity {
     String tabel = "";

@@ -18,34 +18,58 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activity.DashujvyiliaoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.XiaoyuanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.QinziActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ShenghuoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ShangwuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.HangyeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.XuexiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.WorkdetialActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.ParkoneActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".activity.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".DitiegonggaoActivity"
+            android:name=".activity.DitiegonggaoActivity"
             android:exported="false" />
         <activity
-            android:name=".ShiwuzhaolingActivity"
+            android:name=".activity.ShiwuzhaolingActivity"
             android:exported="false" />
         <activity
-            android:name=".GrainchengchekaActivity"
+            android:name=".activity.GrainchengchekaActivity"
             android:exported="false" />
         <activity
-            android:name=".ChengchekaActivity"
+            android:name=".activity.ChengchekaActivity"
             android:exported="false" />
         <activity
-            android:name=".DiyigeActivity"
+            android:name=".activity.DiyigeActivity"
             android:exported="false" />
         <activity
-            android:name=".FindworkActivity"
+            android:name=".activity.FindworkActivity"
             android:exported="false" />
         <activity
-            android:name=".EditAddressActivity"
+            android:name=".activity.EditAddressActivity"
             android:exported="false" />
         <activity
-            android:name=".CreateAddressActivity"
+            android:name=".activity.CreateAddressActivity"
             android:exported="false" />
         <activity
             android:name=".activity.MyAddressActivity"

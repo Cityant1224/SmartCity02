@@ -12,7 +12,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import java.io.IOException;
@@ -20,7 +19,6 @@ import java.util.List;
 
 
 import cn.itcast.smartcity02.Bean.ServiceBean;
-import cn.itcast.smartcity02.FindworkActivity;
 import cn.itcast.smartcity02.R;
 import cn.itcast.smartcity02.adapter.RecycleServiceAdapter;
 import cn.itcast.smartcity02.utils.ApiConfig;

@@ -1,4 +1,4 @@
-package cn.itcast.smartcity02;
+package cn.itcast.smartcity02.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,10 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.util.List;
-
-import cn.itcast.smartcity02.activity.PersonInfoActivity;
-import cn.itcast.smartcity02.activity.SubwayActivity;
+import cn.itcast.smartcity02.R;
 
 public class GrainchengchekaActivity extends AppCompatActivity {
 

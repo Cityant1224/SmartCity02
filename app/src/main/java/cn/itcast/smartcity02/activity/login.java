@@ -22,7 +22,6 @@ import org.json.JSONObject;
 import java.io.IOException;
 import cn.itcast.smartcity02.Bean.LoginBean;
 import cn.itcast.smartcity02.R;
-import cn.itcast.smartcity02.RegisterActivity;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.MediaType;

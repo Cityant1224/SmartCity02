@@ -1,13 +1,10 @@
 package cn.itcast.smartcity02.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.youth.banner.Banner;
@@ -18,14 +15,7 @@ import com.youth.banner.indicator.CircleIndicator;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.itcast.smartcity02.Bean.Subway_lineBean;
-import cn.itcast.smartcity02.ChengchekaActivity;
-import cn.itcast.smartcity02.DitiegonggaoActivity;
-import cn.itcast.smartcity02.DiyigeActivity;
-import cn.itcast.smartcity02.GrainchengchekaActivity;
 import cn.itcast.smartcity02.R;
-import cn.itcast.smartcity02.ShiwuzhaolingActivity;
-import cn.itcast.smartcity02.adapter.Subway_lineAdapter;
 
 public class SubwayActivity extends AppCompatActivity {
 

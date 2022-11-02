@@ -1,4 +1,4 @@
-package cn.itcast.smartcity02;
+package cn.itcast.smartcity02.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,10 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import cn.itcast.smartcity02.activity.SubwayActivity;
+import cn.itcast.smartcity02.R;
 
 public class ChengchekaActivity extends AppCompatActivity {
 

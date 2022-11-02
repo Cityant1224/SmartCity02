@@ -1,8 +1,10 @@
-package cn.itcast.smartcity02;
+package cn.itcast.smartcity02.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import cn.itcast.smartcity02.R;
 
 public class DitiegonggaoActivity extends AppCompatActivity {
 

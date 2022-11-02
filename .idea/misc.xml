@@ -16,6 +16,7 @@
         <entry key="app/src/main/res/layout/activity_chengcheka.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_city_state.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/layout/activity_create_address.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_dashujvyiliao.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/activity_dingdan.xml" value="0.24104919433593752" />
         <entry key="app/src/main/res/layout/activity_diyige.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_edit_address.xml" value="0.2015625" />
@@ -26,7 +27,8 @@
         <entry key="app/src/main/res/layout/activity_grainchengchekainformation2.xml" value="0.125" />
         <entry key="app/src/main/res/layout/activity_hanbao.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_huodong.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/layout/activity_huodong.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_huodongcategory.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/activity_introductory.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_jvfan.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/layout/activity_living_pay.xml" value="0.24166666666666667" />
@@ -54,10 +56,12 @@
         <entry key="app/src/main/res/layout/activity_tiandian.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/activity_total_dingdan_list.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/layout/activity_totaldingdanlist.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/activity_wei_zhang.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/activity_wei_zhang.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_workdetial.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/activity_yijianfankui.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/layout/activity_zhaji.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/layout/activity_zuhetaocan.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/layout/dashujvyiliao_ietm.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/dingdan_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/dingdanwupin.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/edittext_dianhuahaoma.xml" value="0.240625" />
@@ -65,10 +69,13 @@
         <entry key="app/src/main/res/layout/edittext_sex.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/edittext_shenfenzhenghao.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/edittext_youxiang.xml" value="0.240625" />
+        <entry key="app/src/main/res/layout/findwork_item.xml" value="0.17708333333333334" />
         <entry key="app/src/main/res/layout/fragment_news.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_pisa.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/layout/fragment_pisadiancai.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/fragment_pisapinglun.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/huodongcategory_item.xml" value="0.240625" />
+        <entry key="app/src/main/res/layout/huodonglist_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/introductory1.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/introductory2.xml" value="0.12083333333333333" />
         <entry key="app/src/main/res/layout/introductory3.xml" value="0.3098958333333333" />
@@ -94,6 +101,7 @@
         <entry key="app/src/main/res/layout/tab_service.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/takeaway_items.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/takeout_item_layout.xml" value="0.240625" />
+        <entry key="app/src/main/res/layout/workdetial_item.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/zhandian.xml" value="0.1" />
       </map>
     </option>

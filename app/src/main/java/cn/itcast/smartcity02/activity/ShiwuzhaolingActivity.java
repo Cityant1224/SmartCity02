@@ -1,10 +1,12 @@
-package cn.itcast.smartcity02;
+package cn.itcast.smartcity02.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.Button;
+
+import cn.itcast.smartcity02.R;
 
 public class ShiwuzhaolingActivity extends AppCompatActivity {
 
