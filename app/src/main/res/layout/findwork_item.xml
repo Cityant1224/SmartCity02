@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/blue"
+    android:layout_marginTop="20dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/name_work"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="软件开发"
+            android:textSize="20dp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_weight="2"
+            android:id="@+id/address_work"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="大连市万达广场"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/contacts_work"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="张先生"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_weight="2"
+            android:id="@+id/salary_work"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="5000"
+            android:textSize="25dp"
+            android:textColor="@color/teal_200"/>
+    </LinearLayout>
+
+</LinearLayout>
