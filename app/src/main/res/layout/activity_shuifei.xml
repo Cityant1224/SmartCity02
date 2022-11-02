@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".activity.ShuifeiActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:background="@color/blue">
+
+        <ImageView
+            android:id="@+id/fanhui_shuifei"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/fanhui"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="生活缴费"
+            android:textSize="20dp"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/takeawaysearchbackground"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/gengduo_shuifei"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/gengduo"/>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/shuxian"/>
+            <ImageView
+                android:id="@+id/guanbi_shuifei"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/guanbi"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <EditText
+        android:layout_weight="1"
+        android:id="@+id/chaxun_shuifei"
+        android:background="@drawable/takeawaysearchbackground"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:hint="使用身份证号码搜索"
+        android:textSize="20dp"
+        android:textColorHint="@color/gray2"/>
+
+        <ImageView
+            android:id="@+id/sousuo_shuifei"
+            android:layout_weight="9"
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/sousuo"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:text="暂无记录"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/black"/>
+
+
+
+</LinearLayout>

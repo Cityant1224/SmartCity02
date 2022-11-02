@@ -17,6 +17,8 @@
         <entry key="app/src/main/res/layout/activity_city_state.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/layout/activity_create_address.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_dashujvyiliao.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/layout/activity_dianfei.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/layout/activity_dianhuafei.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/activity_dingdan.xml" value="0.24104919433593752" />
         <entry key="app/src/main/res/layout/activity_diyige.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_edit_address.xml" value="0.2015625" />
@@ -46,15 +48,18 @@
         <entry key="app/src/main/res/layout/activity_pisa.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/activity_pisadianinfomation.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_popup.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/layout/activity_ranqifei.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_service.xml" value="0.14557037353515626" />
         <entry key="app/src/main/res/layout/activity_shangwu.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/activity_shiwuzhaoling.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_shuangpin.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_shuifei.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/activity_start.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_subway.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_takeaway.xml" value="0.24659752823654246" />
         <entry key="app/src/main/res/layout/activity_tiandian.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/layout/activity_tianqi.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/activity_total_dingdan_list.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/layout/activity_totaldingdanlist.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_wei_zhang.xml" value="0.25" />

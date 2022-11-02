@@ -8,11 +8,163 @@
     android:background="@color/white"
     tools:context=".activity.SubwayActivity">
 
-    <TextView
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="40dp"
+       android:orientation="horizontal"
+       android:background="@color/blue">
+
+       <TextView
+           android:id="@+id/tianqi"
+           android:layout_width="40dp"
+           android:layout_height="40dp"
+           android:text="长沙"
+           android:textSize="17dp"
+           android:layout_gravity="center"
+           android:gravity="center"/>
+
+       <TextView
+           android:layout_weight="1"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:text="生活缴费"
+           android:textSize="20dp"
+           android:layout_gravity="center"
+           android:gravity="center"/>
+
+       <LinearLayout
+           android:layout_weight="3"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center"
+           android:background="@drawable/takeawaysearchbackground"
+           android:orientation="horizontal">
+           <ImageView
+               android:id="@+id/gengduo_live"
+               android:layout_width="20dp"
+               android:layout_height="20dp"
+               android:src="@mipmap/gengduo"/>
+           <ImageView
+               android:layout_width="20dp"
+               android:layout_height="20dp"
+               android:src="@mipmap/shuxian"/>
+           <ImageView
+               android:id="@+id/guanbi_live"
+               android:layout_width="20dp"
+               android:layout_height="20dp"
+               android:src="@mipmap/guanbi"/>
+
+       </LinearLayout>
+   </LinearLayout>
+
+
+    <com.youth.banner.Banner
+        android:id="@+id/banner_live"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:layout_margin="20dp"/>
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="生活缴费"
-        android:textColor="@color/black"
-        android:textSize="50dp"/>
+        android:orientation="vertical">
+
+<!--        手机话费-->
+        <LinearLayout
+            android:id="@+id/dianhuafei"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/takeawaysearchbackground">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/shouji"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="手机话费"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"/>
+        </LinearLayout>
+
+<!--        水费-->
+        <LinearLayout
+            android:id="@+id/shuifei"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/takeawaysearchbackground">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/shuidi"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="水费"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"/>
+
+        </LinearLayout>
+
+<!--电费-->
+
+        <LinearLayout
+            android:id="@+id/dianfei"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/takeawaysearchbackground">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/dian"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="电费"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"/>
+
+        </LinearLayout>
+
+
+<!--燃气费-->
+        <LinearLayout
+            android:id="@+id/ranqifei"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/takeawaysearchbackground">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/ranqi"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="燃气费"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
 
 </LinearLayout>
