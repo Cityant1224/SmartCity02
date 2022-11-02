@@ -23,7 +23,7 @@ tools:context=".activity.MainActivity">
                 android:background="@color/white">
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/imageView_main"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_gravity="center"

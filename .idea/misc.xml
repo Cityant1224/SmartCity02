@@ -64,10 +64,12 @@
         <entry key="app/src/main/res/layout/activity_totaldingdanlist.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_wei_zhang.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_workdetial.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/layout/activity_xinwen.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/activity_yijianfankui.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/layout/activity_zhaji.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/layout/activity_zuhetaocan.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/dashujvyiliao_ietm.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/layout/dashujvyiliao_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/dingdan_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/dingdanwupin.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/edittext_dianhuahaoma.xml" value="0.240625" />
@@ -107,7 +109,8 @@
         <entry key="app/src/main/res/layout/tab_service.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/takeaway_items.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/takeout_item_layout.xml" value="0.240625" />
-        <entry key="app/src/main/res/layout/workdetial_item.xml" value="0.240625" />
+        <entry key="app/src/main/res/layout/workdetial_item.xml" value="0.22706422018348624" />
+        <entry key="app/src/main/res/layout/xinwen_item.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/zhandian.xml" value="0.1" />
       </map>
     </option>

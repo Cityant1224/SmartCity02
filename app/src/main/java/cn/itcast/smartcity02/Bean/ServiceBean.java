@@ -42,10 +42,6 @@ public class ServiceBean {
     }
 
 
-
-
-
-
     public static class RowsBean {
         private Object searchValue;
         private Object createBy;

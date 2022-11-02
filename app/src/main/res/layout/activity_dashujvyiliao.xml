@@ -9,9 +9,47 @@
     android:layout_weight="1"
     tools:context=".activity.DashujvyiliaoActivity">
 
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/blue">
+
+        <ImageView
+            android:id="@+id/dashujv_fanhui"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/fanhui"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+
 <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/recyclerview_dashujvyiliao"
     android:layout_width="match_parent"
     android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/pinglun_dashujv"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="写评论"
+            android:textColorHint="@color/black"/>
+        <Button
+            android:id="@+id/fabiao_dashujv"
+            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="发表"
+            android:textColor="@color/white"
+            android:background="@color/red"/>
+    </LinearLayout>
 
 </LinearLayout>

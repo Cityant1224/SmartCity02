@@ -1,6 +1,7 @@
 package cn.itcast.smartcity02.activity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,6 +10,7 @@ import android.text.Html;
 import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -144,6 +146,18 @@ public class HuodongActivity extends AppCompatActivity {
 
         initnewslist();
         inithuodongcategorylist();
+
+        LinearLayout shouye = findViewById(R.id.shouye_hd);
+        LinearLayout fuwu = findViewById(R.id.fuwu_hd);
+        LinearLayout xinwen = findViewById(R.id.xinwen_hd);
+        LinearLayout huodong = findViewById(R.id.huodong_hd);
+        LinearLayout geren = findViewById(R.id.geren_hd);
+
+        shouye.setOnClickListener(v -> startActivity(new Intent(HuodongActivity.this,MainActivity.class)));
+        fuwu.setOnClickListener(v -> startActivity(new Intent(HuodongActivity.this,ServiceActivity.class)));
+        xinwen.setOnClickListener(v -> startActivity(new Intent(HuodongActivity.this,NewsActivity.class)));
+        huodong.setOnClickListener(v -> startActivity(new Intent(HuodongActivity.this,HuodongActivity.class)));
+        geren.setOnClickListener(v -> startActivity(new Intent(HuodongActivity.this,PersonCenterActivity.class)));
 
 
     }

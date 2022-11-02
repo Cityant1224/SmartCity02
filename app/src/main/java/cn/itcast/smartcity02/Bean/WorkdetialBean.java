@@ -1,192 +1,164 @@
 package cn.itcast.smartcity02.Bean;
 
-import java.util.List;
 
 public class WorkdetialBean {
-    private    String    msg;
-    private    int    code;
-    private    DataBean    data;
 
-    public void setMsg(String msg){
-        this.msg = msg;
+    private Integer code;
+    private String msg;
+    private DataBean data;
+    private Integer total;
+
+    public Integer getCode() {
+        return code;
     }
-    public String getMsg(){
-        return this.msg;
-    }
-    public void setCode(int code){
+
+    public void setCode(Integer code) {
         this.code = code;
     }
-    public int getCode(){
-        return this.code;
+
+    public String getMsg() {
+        return msg;
     }
-    public void setData(DataBean data){
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public DataBean getData() {
+        return data;
+    }
+
+    public void setData(DataBean data) {
         this.data = data;
     }
-    public DataBean getData(){
-        return this.data;
+
+    public Integer getTotal() {
+        return total;
+    }
+
+    public void setTotal(Integer total) {
+        this.total = total;
     }
 
 
 
-
-    /**
-     * Copyright 2022 json.im
-     **//*===========params===========*/
-
-    private class Params {
-    }
-
-    /*===========data===========*/
 
     public class DataBean {
-        private    String    searchValue;
-        private    String    createBy;
-        private    String    createTime;
-        private    String    updateBy;
-        private    String    updateTime;
-        private    String    remark;
-        private    Params    params;
-        private    int    id;
-        private    int    companyId;
-        private    int    professionId;
-        private    String    contacts;
-        private    String    name;
-        private    String    obligation;
-        private    String    address;
-        private    String    need;
-        private    String    salary;
-        private    String    companyName;
-        private    String    professionName;
+        private Integer id;
+        private Integer companyId;
+        private Integer professionId;
+        private String contacts;
+        private String name;
+        private String obligation;
+        private String address;
+        private String need;
+        private String salary;
+        private String companyName;
+        private String professionName;
 
-        public void setSearchValue(String searchValue){
-            this.searchValue = searchValue;
+        public Integer getId() {
+            return id;
         }
-        public String getSearchValue(){
-            return this.searchValue;
-        }
-        public void setCreateBy(String createBy){
-            this.createBy = createBy;
-        }
-        public String getCreateBy(){
-            return this.createBy;
-        }
-        public void setCreateTime(String createTime){
-            this.createTime = createTime;
-        }
-        public String getCreateTime(){
-            return this.createTime;
-        }
-        public void setUpdateBy(String updateBy){
-            this.updateBy = updateBy;
-        }
-        public String getUpdateBy(){
-            return this.updateBy;
-        }
-        public void setUpdateTime(String updateTime){
-            this.updateTime = updateTime;
-        }
-        public String getUpdateTime(){
-            return this.updateTime;
-        }
-        public void setRemark(String remark){
-            this.remark = remark;
-        }
-        public String getRemark(){
-            return this.remark;
-        }
-        public void setParams(Params params){
-            this.params = params;
-        }
-        public Params getParams(){
-            return this.params;
-        }
-        public void setId(int id){
+
+        public void setId(Integer id) {
             this.id = id;
         }
-        public int getId(){
-            return this.id;
+
+        public Integer getCompanyId() {
+            return companyId;
         }
-        public void setCompanyId(int companyId){
+
+        public void setCompanyId(Integer companyId) {
             this.companyId = companyId;
         }
-        public int getCompanyId(){
-            return this.companyId;
+
+        public Integer getProfessionId() {
+            return professionId;
         }
-        public void setProfessionId(int professionId){
+
+        public void setProfessionId(Integer professionId) {
             this.professionId = professionId;
         }
-        public int getProfessionId(){
-            return this.professionId;
+
+        public String getContacts() {
+            return contacts;
         }
-        public void setContacts(String contacts){
+
+        public void setContacts(String contacts) {
             this.contacts = contacts;
         }
-        public String getContacts(){
-            return this.contacts;
+
+        public String getName() {
+            return name;
         }
-        public void setName(String name){
+
+        public void setName(String name) {
             this.name = name;
         }
-        public String getName(){
-            return this.name;
+
+        public String getObligation() {
+            return obligation;
         }
-        public void setObligation(String obligation){
+
+        public void setObligation(String obligation) {
             this.obligation = obligation;
         }
-        public String getObligation(){
-            return this.obligation;
+
+        public String getAddress() {
+            return address;
         }
-        public void setAddress(String address){
+
+        public void setAddress(String address) {
             this.address = address;
         }
-        public String getAddress(){
-            return this.address;
+
+        public String getNeed() {
+            return need;
         }
-        public void setNeed(String need){
+
+        public void setNeed(String need) {
             this.need = need;
         }
-        public String getNeed(){
-            return this.need;
+
+        public String getSalary() {
+            return salary;
         }
-        public void setSalary(String salary){
+
+        public void setSalary(String salary) {
             this.salary = salary;
         }
-        public String getSalary(){
-            return this.salary;
+
+        public String getCompanyName() {
+            return companyName;
         }
-        public void setCompanyName(String companyName){
+
+        public void setCompanyName(String companyName) {
             this.companyName = companyName;
         }
-        public String getCompanyName(){
-            return this.companyName;
+
+        public String getProfessionName() {
+            return professionName;
         }
-        public void setProfessionName(String professionName){
+
+        public void setProfessionName(String professionName) {
             this.professionName = professionName;
         }
-        public String getProfessionName(){
-            return this.professionName;
-        }
 
 
-        public DataBean(String salary, String name,String need, String address, String obligation){
-            this.name = name;
-            this.need = need;
+
+
+        public DataBean(String salary,String need,String address,String contacts,String obligation){
             this.address = address;
+            this.need = need;
+            this.contacts = contacts;
             this.salary = salary;
-            this.obligation =obligation;
+            this.obligation = obligation;
         }
 
         @Override
         public String toString() {
-            return "Data{" +
-                    "searchValue='" + searchValue + '\'' +
-                    ", createBy='" + createBy + '\'' +
-                    ", createTime='" + createTime + '\'' +
-                    ", updateBy='" + updateBy + '\'' +
-                    ", updateTime='" + updateTime + '\'' +
-                    ", remark='" + remark + '\'' +
-                    ", params=" + params +
-                    ", id=" + id +
+            return "RowsBean{" +
+                    "id=" + id +
                     ", companyId=" + companyId +
                     ", professionId=" + professionId +
                     ", contacts='" + contacts + '\'' +
@@ -200,5 +172,4 @@ public class WorkdetialBean {
                     '}';
         }
     }
-
 }

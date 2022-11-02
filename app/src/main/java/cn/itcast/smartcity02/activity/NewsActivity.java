@@ -56,6 +56,35 @@ public class NewsActivity extends AppCompatActivity {
                 news_recyclerview.setLayoutManager(new LinearLayoutManager(NewsActivity.this));
                 // 设置适配器
                 news_recyclerview.setAdapter(adapter);
+
+                adapter.setItemClickListener(new NewsAdapter.MyItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        Intent intent = null;
+                        if (position==0) {
+                            intent = new Intent(NewsActivity.this, XinwenActivity.class);
+                        }  else if (position==1) {
+                            intent = new Intent(NewsActivity.this, XinwenActivity.class);
+                        }  else if (position==2) {
+                            intent = new Intent(NewsActivity.this, XinwenActivity.class);
+                        }  else if (position==3) {
+                            intent = new Intent(NewsActivity.this, XinwenActivity.class);
+                        }  else if (position==4) {
+                            intent = new Intent(NewsActivity.this, XinwenActivity.class);
+                        }  else if (position==5) {
+                            intent = new Intent(NewsActivity.this, XinwenActivity.class);
+                        }  else if (position==6) {
+                            intent = new Intent(NewsActivity.this, XinwenActivity.class);
+                        }  else if (position==7) {
+                            intent = new Intent(NewsActivity.this, XinwenActivity.class);
+                        }  else if (position==8) {
+                            intent = new Intent(NewsActivity.this, XinwenActivity.class);
+                        }  else if (position==9) {
+                            intent = new Intent(NewsActivity.this, XinwenActivity.class);
+                        }
+                        startActivity(intent);
+                    }
+                });
             }
         }
     };
@@ -80,7 +109,7 @@ public class NewsActivity extends AppCompatActivity {
                 .build();
 
     try{
-        Call call =  client.newCall(request);
+        Call call = client.newCall(request);
         call.enqueue(new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {

@@ -8,6 +8,9 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
@@ -108,11 +111,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     //新闻列表
+    //创建handler
     @SuppressLint("HandlerLeak")
     private Handler handler2 = new Handler() {
         @Override
         public void handleMessage(@NonNull Message msg2) {
             super.handleMessage(msg2);
+
+            //handler捕获消息
             if (msg2.what == 0) {
                 NewsBean newsBean = (NewsBean) msg2.obj;
                 newsBeanlist = newsBean.getRows();
@@ -122,6 +128,34 @@ public class MainActivity extends AppCompatActivity {
                 news_recyclerview.setLayoutManager(new LinearLayoutManager(MainActivity.this));
                 // 设置适配器
                 news_recyclerview.setAdapter(adapter2);
+                adapter2.setItemClickListener(new NewsAdapter.MyItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        Intent intent = null;
+                        if (position==0) {
+                            intent = new Intent(MainActivity.this, NewsActivity.class);
+                        }  else if (position==1) {
+                            intent = new Intent(MainActivity.this, NewsActivity.class);
+                        }  else if (position==2) {
+                            intent = new Intent(MainActivity.this, NewsActivity.class);
+                        }  else if (position==3) {
+                            intent = new Intent(MainActivity.this, NewsActivity.class);
+                        }  else if (position==4) {
+                            intent = new Intent(MainActivity.this, NewsActivity.class);
+                        }  else if (position==5) {
+                            intent = new Intent(MainActivity.this, NewsActivity.class);
+                        }  else if (position==6) {
+                            intent = new Intent(MainActivity.this, NewsActivity.class);
+                        }  else if (position==7) {
+                            intent = new Intent(MainActivity.this, NewsActivity.class);
+                        }  else if (position==8) {
+                            intent = new Intent(MainActivity.this, NewsActivity.class);
+                        }  else if (position==9) {
+                            intent = new Intent(MainActivity.this, NewsActivity.class);
+                        }
+                        startActivity(intent);
+                    }
+                });
             }
         }
     };
@@ -139,6 +173,18 @@ public class MainActivity extends AppCompatActivity {
         initservicelist();
         //新闻recyclerview控件
         news_recyclerview = findViewById(R.id.news_recycler);
+
+        EditText search = findViewById(R.id.search_news_input);
+        String search_text = search.getText().toString();
+
+        ImageView sousuo = findViewById(R.id.imageView_main);
+        sousuo.setOnClickListener(v -> {
+            if (search_text.equals("新闻")){
+                startActivity(new Intent(MainActivity.this,XinwenActivity.class));
+            }
+        });
+
+
         //初始化新闻列表
         initnewslist();
         //初始化导航栏
@@ -232,10 +278,13 @@ public class MainActivity extends AppCompatActivity {
                         String result2 = response.body().string();
                         Log.i("请求成功", result2);
 
-                        // runOnUiThread()用于更新UI
+                        //  runOnUiThread() 创建子线程用于更新UI
+
                         runOnUiThread(() -> {
                             Gson gson2 = new Gson();
                             NewsBean newsBean = gson2.fromJson(result2, NewsBean.class);
+
+                            //从子线程发出消息
                             Message msg2 = new Message();
                             msg2.what = 0;
                             msg2.obj = newsBean;
