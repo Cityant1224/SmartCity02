@@ -45,15 +45,12 @@ public class FindhouseActivity extends AppCompatActivity {
                 adapter = new FindHouseAdapter(FindhouseActivity.this, rowsBeans);
                 mrecyclerview.setLayoutManager(new LinearLayoutManager(FindhouseActivity.this));
                 mrecyclerview.setAdapter(adapter);
-                adapter.setItemClickListener(new FindHouseAdapter.MyItemClickListener() {
-                    @Override
-                    public void onItemClick(View view, int position) {
-                        Intent intent = null;
-                        if (position == 0) {
-                            intent = new Intent(FindhouseActivity.this, HousedetialActivity.class);
-                        }
-                        startActivity(intent);
+                adapter.setItemClickListener((view, position) -> {
+                    Intent intent = null;
+                    if (position == 0) {
+                        intent = new Intent(FindhouseActivity.this, HousedetialActivity.class);
                     }
+                    startActivity(intent);
                 });
             }
         }

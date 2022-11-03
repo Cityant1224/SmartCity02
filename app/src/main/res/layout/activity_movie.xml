@@ -6,13 +6,115 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".activity.SubwayActivity">
+    tools:context=".activity.MovieActivity">
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@color/blue"
+    android:orientation="horizontal">
     <TextView
+        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="看电影"
-        android:textColor="@color/black"
-        android:textSize="50dp"/>
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:layout_gravity="center"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/takeawaysearchbackground"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/gengduo_movie"
+            android:layout_width="26dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/gengduo" />
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/shuxian"/>
+        <ImageView
+            android:id="@+id/guanbi_movie"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/guanbi"/>
+    </LinearLayout>
+</LinearLayout>
 
+<!--    轮播图-->
+    <com.youth.banner.Banner
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_margin="20dp"/>
+
+
+<!--    正在热映-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="正在热映"
+                android:textColor="@color/black"
+                android:textSize="20dp"/>
+            <TextView
+                android:layout_weight="7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="全部 >"
+                android:textColor="@color/black"
+                android:textSize="15dp"/>
+        </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/reying_movie"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
+    </LinearLayout>
+
+
+<!--    待映推荐-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:paddingBottom="20dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="待映推荐"
+                android:textColor="@color/black"
+                android:textSize="20dp"/>
+            <TextView
+                android:layout_weight="7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="全部 >"
+                android:textColor="@color/black"
+                android:textSize="15dp"/>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/daiying_movie"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
+    </LinearLayout>
 </LinearLayout>
