@@ -27,11 +27,12 @@
             android:layout_gravity="center"
             android:background="@drawable/takeawaysearchbackground"
             android:orientation="horizontal">
+
             <ImageView
                 android:id="@+id/gengduo_takeaway"
-                android:layout_width="20dp"
+                android:layout_width="26dp"
                 android:layout_height="20dp"
-                android:src="@mipmap/gengduo"/>
+                android:src="@mipmap/gengduo" />
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"

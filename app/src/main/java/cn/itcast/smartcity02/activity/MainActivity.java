@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 ServiceBean serviceBean = (ServiceBean) msg.obj;
                 rowsBeanList = serviceBean.getRows();
                 // 实例化adapter
-                adapter= new RecycleServiceAdapter(MainActivity.this,rowsBeanList);
+                adapter = new RecycleServiceAdapter(MainActivity.this,rowsBeanList);
                 // 设置布局管理器
                 service_recyclerview.setLayoutManager(new GridLayoutManager(MainActivity.this,4));
                 // 设置适配器

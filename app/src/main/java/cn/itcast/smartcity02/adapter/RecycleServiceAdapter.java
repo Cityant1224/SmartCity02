@@ -57,8 +57,8 @@ public class RecycleServiceAdapter extends RecyclerView.Adapter<RecycleServiceAd
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView service_name;
         private ImageView service_img;
-
         private MyItemClickListener myListener;
+
 
         public MyViewHolder(@NonNull View view,MyItemClickListener myItemClickListener) {
             super(view);

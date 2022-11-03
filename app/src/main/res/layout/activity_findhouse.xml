@@ -8,11 +8,55 @@
     android:background="@color/white"
     tools:context=".activity.SubwayActivity">
 
-    <TextView
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="40dp"
+      android:background="@color/blue"
+      android:orientation="horizontal">
+
+      <TextView
+          android:layout_weight="1"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="找房子"
+          android:textColor="@color/white"
+          android:textSize="20dp"
+          android:layout_gravity="center" />
+
+      <LinearLayout
+          android:layout_weight="5"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:background="@drawable/takeawaysearchbackground"
+          android:orientation="horizontal">
+
+          <ImageView
+              android:id="@+id/gengduo_findhouse"
+              android:layout_width="26dp"
+              android:layout_height="20dp"
+              android:src="@mipmap/gengduo" />
+          <ImageView
+              android:layout_width="20dp"
+              android:layout_height="20dp"
+              android:src="@mipmap/shuxian"/>
+          <ImageView
+              android:id="@+id/guanbi_findhouse"
+              android:layout_width="20dp"
+              android:layout_height="20dp"
+              android:src="@mipmap/guanbi"/>
+      </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_findhouse"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="找房子"
-        android:textColor="@color/black"
-        android:textSize="50dp"/>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

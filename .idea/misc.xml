@@ -29,6 +29,7 @@
         <entry key="app/src/main/res/layout/activity_grainchengchekainformation2.xml" value="0.125" />
         <entry key="app/src/main/res/layout/activity_hanbao.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_housedetial.xml" value="0.23754789272030652" />
         <entry key="app/src/main/res/layout/activity_huodong.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_huodongcategory.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/activity_introductory.xml" value="0.1" />
@@ -77,11 +78,13 @@
         <entry key="app/src/main/res/layout/edittext_sex.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/edittext_shenfenzhenghao.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/edittext_youxiang.xml" value="0.240625" />
+        <entry key="app/src/main/res/layout/findhouse_item.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/findwork_item.xml" value="0.17708333333333334" />
         <entry key="app/src/main/res/layout/fragment_news.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_pisa.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/layout/fragment_pisadiancai.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/fragment_pisapinglun.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/housedetial_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/huodongcategory_item.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/huodonglist_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/introductory1.xml" value="0.3098958333333333" />
