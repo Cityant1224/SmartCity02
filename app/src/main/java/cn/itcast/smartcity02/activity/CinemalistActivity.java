@@ -1,29 +1,29 @@
 package cn.itcast.smartcity02.activity;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
+import android.view.View;
+
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.util.List;
 
+import cn.itcast.smartcity02.Bean.CinameListBean;
 import cn.itcast.smartcity02.Bean.MovieDetialBean;
 import cn.itcast.smartcity02.R;
+import cn.itcast.smartcity02.adapter.CinemaListAdapter;
 import cn.itcast.smartcity02.adapter.MovieDetialAdapter;
-import cn.itcast.smartcity02.adapter.MovieotrherdetialAdapter;
 import cn.itcast.smartcity02.utils.ApiConfig;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -31,16 +31,17 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class MoviedetialActivity extends AppCompatActivity {
+public class CinemalistActivity extends AppCompatActivity {
 
     //    上
     private MovieDetialBean.DataBean dataBeans;
     private MovieDetialAdapter adapter;
     private RecyclerView mrecyclerview;
 
-    //    下
-    private MovieDetialBean.DataBean ndataBeans;
-    private MovieotrherdetialAdapter nadapter;
+
+    //     下
+    private List<CinameListBean.RowsBean> rowsBeans;
+    private CinemaListAdapter adapter2;
     private RecyclerView nrecyclerview;
 
 
@@ -52,58 +53,55 @@ public class MoviedetialActivity extends AppCompatActivity {
             if (msg.what == 0) {
                 MovieDetialBean databean = (MovieDetialBean) msg.obj;
                 dataBeans = databean.getData();
-                adapter = new MovieDetialAdapter(MoviedetialActivity.this, dataBeans);
-                mrecyclerview.setLayoutManager(new LinearLayoutManager(MoviedetialActivity.this));
+                adapter = new MovieDetialAdapter(CinemalistActivity.this, dataBeans);
+                mrecyclerview.setLayoutManager(new LinearLayoutManager(CinemalistActivity.this));
                 mrecyclerview.setAdapter(adapter);
             }
         }
     };
 
-    //    下
+
+    //     下
     @SuppressLint("HandlerLeak")
     private final Handler handler2 = new Handler() {
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            if (msg.what == 0) {
-                MovieDetialBean databean2 = (MovieDetialBean) msg.obj;
-                ndataBeans = databean2.getData();
-                nadapter = new MovieotrherdetialAdapter(MoviedetialActivity.this, ndataBeans);
-                nrecyclerview.setLayoutManager(new LinearLayoutManager(MoviedetialActivity.this));
-                nrecyclerview.setAdapter(nadapter);
+        public void handleMessage(Message msg2) {
+            super.handleMessage(msg2);
+            if (msg2.what == 0) {
+                CinameListBean rowsbean = (CinameListBean) msg2.obj;
+                rowsBeans = rowsbean.getRows();
+                adapter2 = new CinemaListAdapter(CinemalistActivity.this, rowsBeans);
+                nrecyclerview.setLayoutManager(new LinearLayoutManager(CinemalistActivity.this));
+                nrecyclerview.setAdapter(adapter2);
+                adapter2.setMyItemClickListener((view, position) -> {
+                    Intent intent = null;
+                    if (position == 0) {
+                        intent = new Intent(CinemalistActivity.this,CinemaInfoActivity.class);
+                    }
+                    startActivity(intent);
+                });
             }
         }
     };
 
 
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_moviedetial);
+        setContentView(R.layout.activity_cinemalist);
 
-        //        上
-        mrecyclerview = findViewById(R.id.moviedetial_item);
+        mrecyclerview = findViewById(R.id.movie_cinemalist);
         initmoviedetial();
-        //        下
-        nrecyclerview = findViewById(R.id.movieotherdetial_item);
-        initmovieotherdetial();
 
-        //返回按钮
-        ImageView fanhui = findViewById(R.id.fanhui_moviedetial);
-        fanhui.setOnClickListener(v -> startActivity(new Intent(MoviedetialActivity.this,MovieActivity.class)));
-
-        //想看
-        Button want = findViewById(R.id.xiangkan_btn_moviedetial);
-        want.setOnClickListener(v -> {Toast.makeText(this, "添加成功", Toast.LENGTH_SHORT).show();});
-        //看过
-        Button kanguo = findViewById(R.id.kanguo_btn_moviedetial);
-        kanguo.setOnClickListener(v -> {Toast.makeText(this, "添加成功", Toast.LENGTH_SHORT).show();});
-        //购买
-        Button buy = findViewById(R.id.btn_buybtn_reyingmovie);
-        buy.setOnClickListener(v -> startActivity(new Intent(MoviedetialActivity.this,CinemalistActivity.class)));
+        nrecyclerview = findViewById(R.id.cinemalist_cinemalist);
+        initCinemalistview();
     }
 
 
-//    上
+    //    上
     public void initmoviedetial() {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
@@ -138,27 +136,28 @@ public class MoviedetialActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
-//下
-    public void initmovieotherdetial() {
 
-        OkHttpClient client2 = new OkHttpClient();
+
+
+    //      下
+    public void initCinemalistview() {
+        OkHttpClient client = new OkHttpClient();
         Request request2 = new Request.Builder()
-                .url(ApiConfig.BASE_API + "/prod-api/api/movie/film/detail/2")
+                .url(ApiConfig.BASE_API + "/prod-api/api/movie/theatre/list")
                 .build();
         try {
-            Call call2 = client2.newCall(request2);
+            Call call2 = client.newCall(request2);
             call2.enqueue(new Callback() {
                 @Override
-                public void onResponse(@NonNull Call call, @NonNull Response response2) throws IOException {
-                    if (response2.isSuccessful()) {
-                        String result2 = response2.body().string();
+                public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                    if (response.isSuccessful()) {
+                        String result2 = response.body().string();
 
                         runOnUiThread(() -> {
                             Gson gson2 = new Gson();
-                            MovieDetialBean bean2 = gson2.fromJson(result2, MovieDetialBean.class);
+                            CinameListBean bean2 = gson2.fromJson(result2, CinameListBean.class);
                             Message message2 = new Message();
                             message2.what = 0;
                             message2.obj = bean2;
@@ -177,6 +176,6 @@ public class MoviedetialActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
+
 }

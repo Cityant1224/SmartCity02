@@ -9,6 +9,14 @@
     tools:context=".activity.MoviedetialActivity">
 
     <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:orientation="horizontal"
@@ -94,6 +102,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/btn_buybtn_reyingmovie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="立即购票"
+            android:background="@color/red"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"/>
+    </LinearLayout>
 
 
 

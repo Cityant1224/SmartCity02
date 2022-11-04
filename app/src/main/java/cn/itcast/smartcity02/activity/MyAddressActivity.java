@@ -11,10 +11,6 @@ import android.widget.TextView;
 import cn.itcast.smartcity02.R;
 
 public class MyAddressActivity extends AppCompatActivity {
-//    private List<AddressBean> mData = null;
-//    private Context mContext;
-//    private AddressAdapter adapter = null;
-//    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +34,6 @@ public class MyAddressActivity extends AppCompatActivity {
         String address_address = intent.getStringExtra("address_datial");
         String address_name = intent.getStringExtra("address_name");
         String address_phone = intent.getStringExtra("address_phone");
-
-
-//        mContext = MyAddressActivity.this;
-//        listView = findViewById(R.id.address_listview);
-//        mData = new LinkedList<AddressBean>();
 
 
         tabel.setText(address_tabel);

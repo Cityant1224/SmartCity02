@@ -11,9 +11,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+
 
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
@@ -55,25 +54,37 @@ public class ParkActivity extends AppCompatActivity {
                 adapter = new ParkAdapter(ParkActivity.this, rowsbean);
                 mrecyclerview.setLayoutManager(new LinearLayoutManager(ParkActivity.this));
                 mrecyclerview.setAdapter(adapter);
-                adapter.setMyItemClickListener(new ParkAdapter.MyItemClickListener() {
-                    @Override
-                    public void onItemClick(View v, int position) {
-                        Intent intent = null;
-                        if (position == 0) {
-                            intent = new Intent(ParkActivity.this,ParkoneActivity.class);
-                        }else if (position == 1) {
-                            intent = new Intent(ParkActivity.this,ParkoneActivity.class);
-                        }else if (position == 2) {
-                            intent = new Intent(ParkActivity.this,ParkoneActivity.class);
-                        }else if (position == 3) {
-                            intent = new Intent(ParkActivity.this,ParkoneActivity.class);
-                        }
-                        startActivity(intent);
+                adapter.setMyItemClickListener((v, position) -> {
+                    Intent intent = null;
+                    if (position == 0){
+                        intent = new Intent(ParkActivity.this,ParkoneActivity.class);
+                    }else if (position == 1) {
+                        intent = new Intent(ParkActivity.this,ParkoneActivity.class);
+                    } else if (position == 2) {
+                        intent = new Intent(ParkActivity.this,ParkoneActivity.class);
+                    }else if (position == 3) {
+                        intent = new Intent(ParkActivity.this,ParkoneActivity.class);
+                    } else if (position == 4) {
+                        intent = new Intent(ParkActivity.this,ParkoneActivity.class);
                     }
+                    startActivity(intent);
+
                 });
             }
         }
     };
+
+//    List<String> id = new ArrayList<String>();
+//                    @Override
+//                    public void onItemClick(View v, int position) {
+//                        for(position = 0; position < 50; position++) {
+//                           String a =  String.valueOf(position);
+//                           id.add(a);
+//
+//                        }
+//
+//
+//                    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +103,7 @@ public class ParkActivity extends AppCompatActivity {
 
 
     //轮播图
-    List<String> stringList = new ArrayList<String>();
+    List<String> stringList = new ArrayList<>();
     private Banner banner;
     public void initbanner(){
         banner = findViewById(R.id.banner_park);
@@ -130,16 +141,13 @@ public class ParkActivity extends AppCompatActivity {
                     if (response.isSuccessful()) {
                         String result = response.body().string();
 
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                Gson gson = new Gson();
-                                ParkBean bean = gson.fromJson(result, ParkBean.class);
-                                Message msg = new Message();
-                                msg.what = 0;
-                                msg.obj = bean;
-                                handler.sendMessage(msg);
-                            }
+                        runOnUiThread(() -> {
+                            Gson gson = new Gson();
+                            ParkBean bean = gson.fromJson(result, ParkBean.class);
+                            Message msg = new Message();
+                            msg.what = 0;
+                            msg.obj = bean;
+                            handler.sendMessage(msg);
                         });
                     }
                 }

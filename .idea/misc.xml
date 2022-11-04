@@ -14,6 +14,8 @@
         <entry key="app/src/main/res/layout/activity_bus.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/activity_change_password.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/activity_chengcheka.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_cinema_info.xml" value="0.22760416666666666" />
+        <entry key="app/src/main/res/layout/activity_cinemalist.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/layout/activity_city_state.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/layout/activity_create_address.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_dashujvyiliao.xml" value="0.24166666666666667" />
@@ -71,6 +73,7 @@
         <entry key="app/src/main/res/layout/activity_yijianfankui.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/layout/activity_zhaji.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/layout/activity_zuhetaocan.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/layout/cinemalist_item.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/daiyingitem_movie.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/dashujvyiliao_ietm.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/dashujvyiliao_item.xml" value="0.25" />
