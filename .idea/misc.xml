@@ -39,6 +39,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_meishi.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/activity_movie.xml" value="0.22760416666666666" />
+        <entry key="app/src/main/res/layout/activity_moviedaiyingdetial.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/activity_moviedetial.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/activity_my_address.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_news.xml" value="0.165" />
@@ -100,6 +101,8 @@
         <entry key="app/src/main/res/layout/introdutory4.xml" value="0.16979166666666667" />
         <entry key="app/src/main/res/layout/main_news_items.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/main_service_items.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/layout/moviedaiyingdetial_item.xml" value="0.240625" />
+        <entry key="app/src/main/res/layout/moviedaiyingotherdetial.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/moviedetial_item.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/movieotherdetial_item.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/myaddress_item.xml" value="0.2281463623046875" />

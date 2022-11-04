@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -20,10 +19,10 @@ import com.google.gson.Gson;
 
 import java.io.IOException;
 
-import cn.itcast.smartcity02.Bean.MovieDetialBean;
+import cn.itcast.smartcity02.Bean.MovieDaiyingDetialBean;
 import cn.itcast.smartcity02.R;
-import cn.itcast.smartcity02.adapter.MovieDetialAdapter;
-import cn.itcast.smartcity02.adapter.MovieotrherdetialAdapter;
+import cn.itcast.smartcity02.adapter.MovieDaiyingDetialAdapter;
+import cn.itcast.smartcity02.adapter.MovieDaiyingOtherDetialAdapter;
 import cn.itcast.smartcity02.utils.ApiConfig;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -31,78 +30,73 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class MoviedetialActivity extends AppCompatActivity {
+public class MoviedaiyingdetialActivity extends AppCompatActivity {
 
     //    上
-    private MovieDetialBean.DataBean dataBeans;
-    private MovieDetialAdapter adapter;
+    private MovieDaiyingDetialBean.DataBean dataBeans;
+    private MovieDaiyingDetialAdapter adapter;
     private RecyclerView mrecyclerview;
-
-    //    下
-    private MovieDetialBean.DataBean ndataBeans;
-    private MovieotrherdetialAdapter nadapter;
-    private RecyclerView nrecyclerview;
-
-
-    //上
+    //    上
     @SuppressLint("HandlerLeak")
     private final Handler handler = new Handler() {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             if (msg.what == 0) {
-                MovieDetialBean databean = (MovieDetialBean) msg.obj;
+                MovieDaiyingDetialBean databean = (MovieDaiyingDetialBean) msg.obj;
                 dataBeans = databean.getData();
-                adapter = new MovieDetialAdapter(MoviedetialActivity.this, dataBeans);
-                mrecyclerview.setLayoutManager(new LinearLayoutManager(MoviedetialActivity.this));
+                adapter = new MovieDaiyingDetialAdapter(MoviedaiyingdetialActivity.this, dataBeans);
+                mrecyclerview.setLayoutManager(new LinearLayoutManager(MoviedaiyingdetialActivity.this));
                 mrecyclerview.setAdapter(adapter);
             }
         }
     };
-
     //    下
+    private MovieDaiyingDetialBean.DataBean ndataBeans;
+    private MovieDaiyingOtherDetialAdapter nadapter;
+    private RecyclerView nrecyclerview;
     @SuppressLint("HandlerLeak")
     private final Handler handler2 = new Handler() {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             if (msg.what == 0) {
-                MovieDetialBean databean2 = (MovieDetialBean) msg.obj;
-                ndataBeans = databean2.getData();
-                nadapter = new MovieotrherdetialAdapter(MoviedetialActivity.this, ndataBeans);
-                nrecyclerview.setLayoutManager(new LinearLayoutManager(MoviedetialActivity.this));
+                MovieDaiyingDetialBean databean = (MovieDaiyingDetialBean) msg.obj;
+                ndataBeans = databean.getData();
+                nadapter = new MovieDaiyingOtherDetialAdapter(MoviedaiyingdetialActivity.this, ndataBeans);
+                nrecyclerview.setLayoutManager(new LinearLayoutManager(MoviedaiyingdetialActivity.this));
                 nrecyclerview.setAdapter(nadapter);
             }
         }
     };
 
+//下
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_moviedetial);
-
-//        上
-        mrecyclerview = findViewById(R.id.moviedetial_item);
+        setContentView(R.layout.activity_moviedaiyingdetial);
+        //上
+        mrecyclerview = findViewById(R.id.moviedaiyingdetial_item);
         initmoviedetial();
-//下
-        nrecyclerview = findViewById(R.id.movieotherdetial_item);
-        initmovieotherdetial();
 
+//        下
+        nrecyclerview = findViewById(R.id.moviedaiyingotherdetial_item);
+        initotherdaiyingdetialview();
 
-        ImageView fanhui = findViewById(R.id.fanhui_moviedetial);
-        fanhui.setOnClickListener(v -> startActivity(new Intent(MoviedetialActivity.this,MovieActivity.class)));
+        ImageView fanhui = findViewById(R.id.fanhui_moviedaiyingdetial);
+        Button xiangkan = findViewById(R.id.xiangkandaiying_btn_moviedaiyingdetial);
+        Button kanguo = findViewById(R.id.kanguodaiying_btn_moviedaiyingdetial);
 
-        Button want = findViewById(R.id.xiangkan_btn_moviedetial);
-        Button kanguo = findViewById(R.id.kanguo_btn_moviedetial);
-        want.setOnClickListener(v -> {Toast.makeText(this, "添加成功", Toast.LENGTH_SHORT).show();});
-        kanguo.setOnClickListener(v -> {Toast.makeText(this, "添加成功", Toast.LENGTH_SHORT).show();});
+        fanhui.setOnClickListener(v -> startActivity(new Intent(MoviedaiyingdetialActivity.this, MovieActivity.class)));
+        xiangkan.setOnClickListener(v -> Toast.makeText(MoviedaiyingdetialActivity.this, "添加成功", Toast.LENGTH_SHORT).show());
+        kanguo.setOnClickListener(v -> Toast.makeText(MoviedaiyingdetialActivity.this, "添加成功", Toast.LENGTH_SHORT).show());
+
     }
 
-
-//    上
     public void initmoviedetial() {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url(ApiConfig.BASE_API + "/prod-api/api/movie/film/detail/2")
+                .url(ApiConfig.BASE_API + "/prod-api/api/movie/film/preview/2")
                 .build();
         try {
             Call call = client.newCall(request);
@@ -114,7 +108,7 @@ public class MoviedetialActivity extends AppCompatActivity {
 
                         runOnUiThread(() -> {
                             Gson gson = new Gson();
-                            MovieDetialBean bean = gson.fromJson(result, MovieDetialBean.class);
+                            MovieDaiyingDetialBean bean = gson.fromJson(result, MovieDaiyingDetialBean.class);
                             Message message = new Message();
                             message.what = 0;
                             message.obj = bean;
@@ -133,31 +127,30 @@ public class MoviedetialActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
-//下
-    public void initmovieotherdetial() {
 
-        OkHttpClient client2 = new OkHttpClient();
-        Request request2 = new Request.Builder()
-                .url(ApiConfig.BASE_API + "/prod-api/api/movie/film/detail/2")
+    //    下
+    public void initotherdaiyingdetialview() {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(ApiConfig.BASE_API + "/prod-api/api/movie/film/preview/2")
                 .build();
         try {
-            Call call2 = client2.newCall(request2);
-            call2.enqueue(new Callback() {
+            Call call = client.newCall(request);
+            call.enqueue(new Callback() {
                 @Override
-                public void onResponse(@NonNull Call call, @NonNull Response response2) throws IOException {
-                    if (response2.isSuccessful()) {
-                        String result2 = response2.body().string();
+                public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                    if (response.isSuccessful()) {
+                        String result = response.body().string();
 
                         runOnUiThread(() -> {
-                            Gson gson2 = new Gson();
-                            MovieDetialBean bean2 = gson2.fromJson(result2, MovieDetialBean.class);
-                            Message message2 = new Message();
-                            message2.what = 0;
-                            message2.obj = bean2;
-                            handler2.sendMessage(message2);
+                            Gson gson = new Gson();
+                            MovieDaiyingDetialBean bean = gson.fromJson(result, MovieDaiyingDetialBean.class);
+                            Message message = new Message();
+                            message.what = 0;
+                            message.obj = bean;
+                            handler2.sendMessage(message);
                         });
 
                     }
@@ -172,6 +165,6 @@ public class MoviedetialActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
+
 }

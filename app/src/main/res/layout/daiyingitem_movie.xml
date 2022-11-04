@@ -3,18 +3,19 @@
     android:layout_width="wrap_content"
     android:background="@color/white"
     android:orientation="vertical"
+    android:layout_margin="10dp"
     android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/daiying_img_item"
         android:layout_width="80dp"
         android:layout_height="120dp"
-        android:src="@mipmap/wallpaper1"/>
+        android:src="@mipmap/wallpaper3"/>
     <TextView
         android:id="@+id/daiying_name_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="变形金刚"
+        android:text="悬崖之上"
         android:layout_marginTop="5dp"
         android:textColor="@color/black"
         android:layout_gravity="center"
