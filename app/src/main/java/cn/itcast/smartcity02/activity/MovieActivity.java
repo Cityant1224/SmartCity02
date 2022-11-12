@@ -66,7 +66,7 @@ public class MovieActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(View view, int position) {
                         Intent intent = null;
-                        if (position == 0){
+                        if (position > 0){
                             intent = new Intent(MovieActivity.this,MoviedetialActivity.class);
                         }
                         startActivity(intent);
@@ -91,7 +91,7 @@ public class MovieActivity extends AppCompatActivity {
                 nrecyclerView.setAdapter(nadapter);
                 nadapter.setMyItemClickListener((view, position) -> {
                     Intent intent = null;
-                    if (position == 0) {
+                    if (position > 0) {
                         intent = new Intent(MovieActivity.this,MoviedaiyingdetialActivity.class);
                     }
                     startActivity(intent);

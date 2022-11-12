@@ -13,12 +13,6 @@
         android:orientation="horizontal"
         android:background="@color/blue"
         android:gravity="center">
-        <ImageView
-            android:id="@+id/return_toPersoncenter"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="10dp"
-            android:src="@mipmap/fanhui"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -102,10 +96,12 @@
             android:textColor="@color/black"
             android:layout_weight="1"/>
         <TextView
+            android:layout_weight="1"
             android:id="@+id/nicheng_text"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
+            android:textSize="15dp"
             android:layout_marginRight="10dp"
             android:textColor="@color/black"/>
         <ImageView
@@ -129,10 +125,12 @@
             android:textColor="@color/black"
             android:layout_weight="1"/>
         <TextView
+            android:layout_weight="1"
             android:id="@+id/youxiang_text"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
+            android:textSize="15dp"
             android:layout_marginRight="10dp"
             android:textColor="@color/black"/>
         <ImageView
@@ -156,10 +154,12 @@
             android:textColor="@color/black"
             android:layout_weight="1"/>
         <TextView
+            android:layout_weight="1"
             android:id="@+id/dianhuahaoma_text"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
+            android:textSize="15dp"
             android:textColor="@color/black"/>
         <ImageView
             android:layout_marginLeft="10dp"
@@ -183,10 +183,12 @@
             android:textColor="@color/black"
             android:layout_weight="1"/>
         <TextView
+            android:layout_weight="1"
             android:id="@+id/xingbie_text"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
+            android:textSize="15dp"
             android:textColor="@color/black"/>
         <ImageView
             android:layout_width="20dp"
@@ -210,10 +212,12 @@
             android:textColor="@color/black"
             android:layout_weight="1"/>
         <TextView
+            android:layout_weight="1"
             android:id="@+id/shenfenzheng_text"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
+            android:textSize="15dp"
             android:layout_marginRight="10dp"
             android:textColor="@color/black"/>
         <ImageView
@@ -236,6 +240,7 @@
             android:textColor="@color/black"
             android:layout_weight="1"/>
         <TextView
+            android:id="@+id/yu_e_personalinfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1000"
@@ -256,6 +261,7 @@
             android:textColor="@color/black"
             android:layout_weight="1"/>
         <TextView
+            android:id="@+id/jifen_personal_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1000"

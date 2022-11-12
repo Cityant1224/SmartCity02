@@ -56,35 +56,15 @@ public class ParkActivity extends AppCompatActivity {
                 mrecyclerview.setAdapter(adapter);
                 adapter.setMyItemClickListener((v, position) -> {
                     Intent intent = null;
-                    if (position == 0){
-                        intent = new Intent(ParkActivity.this,ParkoneActivity.class);
-                    }else if (position == 1) {
-                        intent = new Intent(ParkActivity.this,ParkoneActivity.class);
-                    } else if (position == 2) {
-                        intent = new Intent(ParkActivity.this,ParkoneActivity.class);
-                    }else if (position == 3) {
-                        intent = new Intent(ParkActivity.this,ParkoneActivity.class);
-                    } else if (position == 4) {
-                        intent = new Intent(ParkActivity.this,ParkoneActivity.class);
-                    }
+                    String id = String.valueOf(position);
+                    intent.putExtra("id",id);
+                    startActivity(new Intent(ParkActivity.this,ParkoneActivity.class));
                     startActivity(intent);
-
                 });
             }
         }
     };
-
-//    List<String> id = new ArrayList<String>();
-//                    @Override
-//                    public void onItemClick(View v, int position) {
-//                        for(position = 0; position < 50; position++) {
-//                           String a =  String.valueOf(position);
-//                           id.add(a);
-//
-//                        }
-//
-//
-//                    }
+//    ParkoneActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

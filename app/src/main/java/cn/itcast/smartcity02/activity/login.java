@@ -1,169 +1,124 @@
 package cn.itcast.smartcity02.activity;
 
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import org.json.JSONException;
 import org.json.JSONObject;
-import java.io.IOException;
-import cn.itcast.smartcity02.Bean.LoginBean;
+
+import cn.itcast.smartcity02.Bean.UserBean;
 import cn.itcast.smartcity02.R;
-import okhttp3.Call;
-import okhttp3.Callback;
+import cn.itcast.smartcity02.utils.ApiConfig;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-
-public class login extends AppCompatActivity implements View.OnClickListener {
-
-    private EditText edt_name;
-    private EditText edt_psw;
-    private Button btn_login;
-    private Button btn_register;
-    private String token;
-    private Intent intent = null;
-
+public class login extends AppCompatActivity {
+    //设置发送格式
+    public static final MediaType JSON = MediaType.parse("application/json;charset=UTF-8");
+    //创建okhttp连接
+    final OkHttpClient client = new OkHttpClient();
+    //实例化控件
+    private String urn, pwd;
+    private EditText username, password;
+    private Button denglu, zhuce;
     @SuppressLint("HandlerLeak")
-    Handler handler = new Handler() {
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-            super.handleMessage(msg);
-            if (msg==obtainMessage()) {
-                Toast.makeText(getApplicationContext(),"登录成功",Toast.LENGTH_LONG).show();
+    private final Handler mHandler = new Handler() {
+        public void handleMessage(Message msg) {
+            if (msg.what == 1) {
+                String ReturnMessage = (String) msg.obj;
+                final UserBean userbean = (UserBean) new Gson().fromJson(ReturnMessage, UserBean.class);
+                final String AA = userbean.getMsg();
+
             }
         }
     };
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        initView();
+
+        //find控件
+        username = (EditText) findViewById(R.id.yonghuming_edit);
+        password = (EditText) findViewById(R.id.mima_edit);
+        denglu = (Button) findViewById(R.id.denglu_edit);
+        zhuce = (Button) findViewById(R.id.zhuce_edit);
+
+
+        //设置登录监听
+        denglu.setOnClickListener(v -> {
+            urn = username.getText().toString().trim();
+            pwd = password.getText().toString().trim();
+
+            postRequest(urn, pwd);
+        });
     }
 
-    private void initView() {
-        edt_name = findViewById(R.id.username);
-        edt_psw = findViewById(R.id.password);
-        btn_login = findViewById(R.id.log_in);
-        btn_register = findViewById(R.id.register);
+    //请求方法（带参）
+    public void postRequest(String username, String password) {
+        String name = username;
+        String pass = password;
 
-        btn_login.setOnClickListener(this);
-        btn_register.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.log_in:
-                Login();
-                break;
-            case R.id.register:
-                intent = new Intent(login.this, RegisterActivity.class);
-                startActivity(intent);
-                break;
+        //放入json类型数据
+        JSONObject json = new JSONObject();
+        try {
+            json.put("username", name);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-    }
+        try {
+            json.put("password", pass);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        //发送请求
+        RequestBody body = RequestBody.create(JSON, json.toString());
+        Request request = new Request.Builder()
+                .url(ApiConfig.BASE_API + "/prod-api/api/login")
+                .post(body)
+                .build();
 
-    private void Login() {
-        final String username =  edt_name.getText().toString().trim();
-        final String password = edt_psw.getText().toString().trim();
-        if (TextUtils.isEmpty(username )) {
-            Toast.makeText(this, "请输入用户名", Toast.LENGTH_SHORT).show();
-            return;
-        } else if (TextUtils.isEmpty(password)) {
-            Toast.makeText(this, "请输入密码", Toast.LENGTH_SHORT).show();
-            return;
-        } else if (true) {
-
-            OkHttpClient client = new OkHttpClient();
-            final JSONObject jsonObject = new JSONObject();
-
-            try {//提交的参数
-                jsonObject.put("username",username);
-                jsonObject.put("password",password);
-            } catch (JSONException e) {
+        //建立新线程，更新UI
+        new Thread(() -> {
+            Response response = null;
+            try {
+                response = client.newCall(request).execute();
+                //获取返回的结果
+                String result2 = response.body().string();
+                //获取获得的json中的对象
+                JsonObject jsonObject = (JsonObject) new JsonParser().parse(result2).getAsJsonObject();
+                int code = jsonObject.get("code").getAsInt();
+                String msg = jsonObject.get("msg").getAsString();
+                //判断与数据库中的数据是否相符
+                if (code == 200) {
+                    //相符即登录成功
+                    startActivity(new Intent(login.this, MainActivity.class));
+                    Looper.prepare();
+                    Toast.makeText(login.this, "登录成功", Toast.LENGTH_SHORT).show();
+                    Looper.loop();
+                    finish();
+                    //否则登录失败
+                } else if (!msg.equals("操作成功")) {
+                    Looper.prepare();
+                    Toast.makeText(login.this, "登录失败,请检查用户名及密码是否正确", Toast.LENGTH_SHORT).show();
+                    Looper.loop();
+                }
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-            MediaType mMediaType = MediaType.parse("application/json; charset=utf-8");
-            final RequestBody requestBody = RequestBody.create(mMediaType, jsonObject.toString());
-            Request request = new Request.Builder()
-                    .post(requestBody)
-                    .url("http://124.93.196.45:10001/prod-api/api/login")
-                    .build();
-            okhttp3.Call call = client.newCall(request);
-            call.enqueue(new Callback() {
-                @Override
-                public void onFailure(Call call, IOException e) {
-                    //请求失败
-                    Log.i("请求情况：", "请求失败");
-                }
-
-                @Override
-                public void onResponse(Call call, Response response) throws IOException {
-                    if (response.isSuccessful()) {
-                        Log.i("响应状态", "响应成功");
-                        final String loginBody = response.body().string();
-                        Gson gson = new Gson();
-                        LoginBean loginBean = gson.fromJson(loginBody, LoginBean.class);
-                        String loginResultCode = loginBean.getCode();
-                        Log.i("返回状态码", loginResultCode);
-                        //响应成功,判断状态码
-                        if (loginResultCode.equals("200")) {
-                            Log.i("登录状态", "登录成功");
-                            //获取token
-                            token = loginBean.getToken();
-                            // 把token保存到本地
-                            SharedPreferences.Editor editor= getSharedPreferences("get_token", MODE_PRIVATE).edit();
-                            editor.putString("token",token);
-                            editor.putString("username",username);
-                            editor.putString("password",password);
-                            editor.apply();
-
-                            //保存token
-                            //登录成功，跳到个人中心界面
-                            Message message = handler.obtainMessage();
-
-                            message.obj = token;
-                            handler.sendMessage(message);
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Toast.makeText(getApplicationContext(),loginBody,Toast.LENGTH_LONG).show();
-                                }
-                            });
-                            startActivity(new Intent(login.this, PersonCenterActivity.class));
-                            finish();
-                        } else {
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Toast.makeText(getApplicationContext(),"登录失败",Toast.LENGTH_LONG).show();
-                                }
-                            });
-                        }
-                    }
-                }
-            });
-        }
+        }).start();
     }
 }
-
-

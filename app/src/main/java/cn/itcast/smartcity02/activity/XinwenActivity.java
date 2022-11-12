@@ -56,10 +56,6 @@ public class XinwenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_xinwen);
 
-
-        ImageView fanhui = findViewById(R.id.fanhui_xinwen);
-        fanhui.setOnClickListener(v -> startActivity(new Intent(XinwenActivity.this,MainActivity.class)));
-
         news_recyclerview = findViewById(R.id.recycler_xinwen);
 
         getNewsData();
@@ -68,9 +64,11 @@ public class XinwenActivity extends AppCompatActivity {
 
     //请求数据
     public void getNewsData(){
+        Intent intent = getIntent();
+        String id = intent.getStringExtra("new_id");
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url(ApiConfig.BASE_API + "/prod-api/press/press/28")
+                .url(ApiConfig.BASE_API + "/prod-api/press/press/" + id)
                 .build();
 
         try{

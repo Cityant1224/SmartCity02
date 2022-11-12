@@ -47,12 +47,15 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/touxiang_info"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_height="106dp"
                 android:background="@color/blue"
+                android:onClick="changeAvatar"
                 android:src="@mipmap/touxiang" />
 
             <TextView
+                android:id="@+id/username_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

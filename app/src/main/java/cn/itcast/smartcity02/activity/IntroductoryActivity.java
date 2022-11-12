@@ -19,7 +19,7 @@ import cn.itcast.smartcity02.adapter.IntroductoryAdapter;
 public class IntroductoryActivity extends AppCompatActivity {
     private ViewPager mViewPage;
     private List<View> viewList = new ArrayList<View>();
-    private Button to_login_btn,to_getin_btn;
+    private Button to_login_btn,to_register_btn,to_getin_btn;
 
 
     @Override
@@ -33,9 +33,12 @@ public class IntroductoryActivity extends AppCompatActivity {
 
 
         to_login_btn = viewList.get(3).findViewById(R.id.goto_login);
+        to_register_btn = viewList.get(3).findViewById(R.id.goto_register);
         to_getin_btn = viewList.get(3).findViewById(R.id.getin_main);
         //创建登录监听器
         to_login_btn.setOnClickListener(v -> startActivity(new Intent(IntroductoryActivity.this, login.class)));
+        //创建注册监听器
+        to_register_btn.setOnClickListener(v -> startActivity(new Intent(IntroductoryActivity.this,RegisterActivity.class)));
         //创建进入主页监听器
         to_getin_btn.setOnClickListener(v -> startActivity(new Intent(IntroductoryActivity.this, MainActivity.class)));
     }

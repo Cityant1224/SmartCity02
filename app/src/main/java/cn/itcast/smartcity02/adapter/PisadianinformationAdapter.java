@@ -29,7 +29,7 @@ public class PisadianinformationAdapter extends RecyclerView.Adapter<Pisadianinf
     @NonNull
     @Override
     public PisadianinformationHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = layoutInflater.inflate(R.layout.pisadianinformation, parent, false);
+        View view = layoutInflater.inflate(R.layout.activity_shipin, parent, false);//pisadianinformation
         PisadianinformationHolder holder = new PisadianinformationHolder(view,myItemClickListener);
         return holder;
     }

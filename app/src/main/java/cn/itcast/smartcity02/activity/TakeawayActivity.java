@@ -111,19 +111,19 @@ public class TakeawayActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(View view, int position) {
                         Intent intent = null;
-                        if (position == 0) {
+                        if (position > 0) {
                             intent = new Intent(TakeawayActivity.this, PisadianinfomationActivity.class);
-                        }else if (position == 1) {
-                            //intent = new Intent(TakeawayActivity.this,PisadianInformation.class);
-                        }
-                        else if (position == 2) {
-                            //intent = new Intent(TakeawayActivity.this,PisadianInformation.class);
-                        }else if (position == 3) {
-                            //intent = new Intent(TakeawayActivity.this,PisadianInformation.class);
-                        }else if (position == 4) {
-                            //intent = new Intent(TakeawayActivity.this,PisadianInformation.class);
-                        }else if (position == 5) {
-                            //intent = new Intent(TakeawayActivity.this,PisadianInformation.class);
+//                        }else if (position == 1) {
+//                            //intent = new Intent(TakeawayActivity.this,PisadianInformation.class);
+//                        }
+//                        else if (position == 2) {
+//                            //intent = new Intent(TakeawayActivity.this,PisadianInformation.class);
+//                        }else if (position == 3) {
+//                            //intent = new Intent(TakeawayActivity.this,PisadianInformation.class);
+//                        }else if (position == 4) {
+//                            //intent = new Intent(TakeawayActivity.this,PisadianInformation.class);
+//                        }else if (position == 5) {
+//                            //intent = new Intent(TakeawayActivity.this,PisadianInformation.class);
                         }
                         startActivity(intent);
                     }

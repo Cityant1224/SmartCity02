@@ -3,9 +3,12 @@ package cn.itcast.smartcity02.adapter;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
@@ -40,6 +43,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
         View view = layoutInflater.inflate(R.layout.news_item,parent,false);
         NewsHolder newsHolder = new NewsHolder(view,mItemClickListener);
         return newsHolder;
+
     }
 
     // 将数据与控件绑定
@@ -51,6 +55,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
         holder.date.setText(newsBeans.get(position).getPublishDate());
         String url = ApiConfig.BASE_API + newsBeans.get(position).getCover();
         Glide.with(context).load(url).into(holder.image);
+        holder.image.setScaleType(ImageView.ScaleType.FIT_XY);
     }
 
     // 返回Item总条数
@@ -60,7 +65,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
     }
 
     // 内部类，绑定控件
-    public class NewsHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class NewsHolder extends RecyclerView.ViewHolder implements OnClickListener {
         private TextView title;
         private ImageView image;
         private TextView likeNum;
@@ -95,6 +100,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
     //在activity中adapter中调用此方法，将点击事件监听传递过去，并赋值给全局监听
     public void setItemClickListener(MyItemClickListener myItemClickListener){
         this.mItemClickListener = myItemClickListener;
+
     }
 
 }

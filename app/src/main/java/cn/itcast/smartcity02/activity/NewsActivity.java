@@ -12,24 +12,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
-
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-
 import cn.itcast.smartcity02.Bean.NewsBean;
-import cn.itcast.smartcity02.Bean.ServiceBean;
 import cn.itcast.smartcity02.R;
 import cn.itcast.smartcity02.adapter.NewsAdapter;
-import cn.itcast.smartcity02.adapter.RecycleServiceAdapter;
 import cn.itcast.smartcity02.utils.ApiConfig;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -59,30 +48,16 @@ public class NewsActivity extends AppCompatActivity {
 
                 adapter.setItemClickListener((view, position) -> {
 
-                    position = 0;
-                    Intent intent = null;
-                    if (position==0) {
-                        intent = new Intent(NewsActivity.this, XinwenActivity.class);
-                    }  else if (position==1) {
-                        intent = new Intent(NewsActivity.this, XinwenActivity.class);
-                    }  else if (position==2) {
-                        intent = new Intent(NewsActivity.this, XinwenActivity.class);
-                    }  else if (position==3) {
-                        intent = new Intent(NewsActivity.this, XinwenActivity.class);
-                    }  else if (position==4) {
-                        intent = new Intent(NewsActivity.this, XinwenActivity.class);
-                    }  else if (position==5) {
-                        intent = new Intent(NewsActivity.this, XinwenActivity.class);
-                    }  else if (position==6) {
-                        intent = new Intent(NewsActivity.this, XinwenActivity.class);
-                    }  else if (position==7) {
-                        intent = new Intent(NewsActivity.this, XinwenActivity.class);
-                    }  else if (position==8) {
-                        intent = new Intent(NewsActivity.this, XinwenActivity.class);
-                    }  else if (position==9) {
-                        intent = new Intent(NewsActivity.this, XinwenActivity.class);
+
+                    if (position < 100 ){
+                        int id = position + 29;
+                        String new_id = String.valueOf(id);
+                        Intent intent = new Intent(NewsActivity.this,XinwenActivity.class);
+                        intent.putExtra("new_id", new_id);
+                        startActivity(intent);
+                        startActivity(new Intent(NewsActivity.this,XinwenActivity.class));
                     }
-                    startActivity(intent);
+
                 });
             }
         }
@@ -99,6 +74,11 @@ public class NewsActivity extends AppCompatActivity {
         news_recyclerview = findViewById(R.id.new_RecyclerView);
         getNewsData();
     }
+
+
+
+
+
 
     //请求数据
     public void getNewsData(){
@@ -119,7 +99,6 @@ public class NewsActivity extends AppCompatActivity {
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                 if (response.isSuccessful()) {
                     String result = response.body().string();
-                    Log.i("请求成功", result);
 
                     // runOnUiThread()用于更新UI
                     runOnUiThread(() -> {

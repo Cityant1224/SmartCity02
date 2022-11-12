@@ -37,9 +37,12 @@ tools:context=".activity.MainActivity">
                     android:layout_height="match_parent"
                     android:layout_marginStart="8dp"
                     android:textColor="@color/black"
-                    android:imeOptions="actionSearch"
                     android:textSize="16sp"
-                    tools:ignore="RtlSymmetry,TouchTargetSizeCheck" />
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:imeOptions="actionDone"
+
+                tools:ignore="RtlSymmetry,TouchTargetSizeCheck" />
             </LinearLayout>
         </LinearLayout>
 

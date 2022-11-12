@@ -1,6 +1,7 @@
 package cn.itcast.smartcity02.adapter;
 
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +42,9 @@ public class XinwenSingleAdapter extends RecyclerView.Adapter<XinwenSingleAdapte
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-        holder.content.setText(singlebean.getContent());
+        String text = singlebean.getContent();
+        holder.content.setText(Html.fromHtml(text));
+//        holder.content.setText(singlebean.getContent());
         holder.title.setText(singlebean.getTitle());
         String url = ApiConfig.BASE_API + singlebean.getCover();
         Glide.with(mContext).load(url).into(holder.image);

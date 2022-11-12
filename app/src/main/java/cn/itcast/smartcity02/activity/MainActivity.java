@@ -2,15 +2,19 @@ package cn.itcast.smartcity02.activity;
 
 
 import android.annotation.SuppressLint;
+import android.app.appsearch.AppSearchManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -71,38 +75,35 @@ public class MainActivity extends AppCompatActivity {
                 // 设置适配器
                 service_recyclerview.setAdapter(adapter);
                 // 设置item点击跳转事件 分别到对应的页面,在Intent中可以自己创建跳转的activity
-                adapter.setItemClickListener(new RecycleServiceAdapter.MyItemClickListener() {
-                    @Override
-                    public void onItemClick(View view, int position) {
-                        String url = ApiConfig.BASE_API + "/" + rowsBeanList.get(position).getLink();
-                        Intent intent = null;
-                        if (position==0) {
-                            intent = new Intent(MainActivity.this, ParkActivity.class);
-                        }  else if (position==1) {
-                            intent = new Intent(MainActivity.this, SubwayActivity.class);
-                        }  else if (position==2) {
-                            intent = new Intent(MainActivity.this, BusActivity.class);
-                        }  else if (position==3) {
-                            intent = new Intent(MainActivity.this, ApponitmentActivity.class);
-                        }  else if (position==4) {
-                            intent = new Intent(MainActivity.this, TrafficActivity.class);
-                        }  else if (position==5) {
-                            intent = new Intent(MainActivity.this, LivingPayActivity.class);
-                        }  else if (position==6) {
-                            intent = new Intent(MainActivity.this, TakeawayActivity.class);
-                        }  else if (position==7) {
-                            intent = new Intent(MainActivity.this, FindhouseActivity.class);
-                        }  else if (position==8) {
-                            intent = new Intent(MainActivity.this, MovieActivity.class);
-                        }  else if (position==9) {
-                            intent = new Intent(MainActivity.this, FindworkActivity.class);
-                        }
-                        Bundle bundle = new Bundle();
-                        bundle.putString("title",rowsBeanList.get(position).getServiceName());
-                        bundle.putString("url",url);
-                        intent.putExtras(bundle);
-                        startActivity(intent);
+                adapter.setItemClickListener((view, position) -> {
+                    String url = ApiConfig.BASE_API + "/" + rowsBeanList.get(position).getLink();
+                    Intent intent = null;
+                    if (position==0) {
+                        intent = new Intent(MainActivity.this, ParkActivity.class);
+                    }  else if (position==1) {
+                        intent = new Intent(MainActivity.this, SubwayActivity.class);
+                    }  else if (position==2) {
+                        intent = new Intent(MainActivity.this, BusActivity.class);
+                    }  else if (position==3) {
+                        intent = new Intent(MainActivity.this, ApponitmentActivity.class);
+                    }  else if (position==4) {
+                        intent = new Intent(MainActivity.this, TrafficActivity.class);
+                    }  else if (position==5) {
+                        intent = new Intent(MainActivity.this, LivingPayActivity.class);
+                    }  else if (position==6) {
+                        intent = new Intent(MainActivity.this, TakeawayActivity.class);
+                    }  else if (position==7) {
+                        intent = new Intent(MainActivity.this, FindhouseActivity.class);
+                    }  else if (position==8) {
+                        intent = new Intent(MainActivity.this, MovieActivity.class);
+                    }  else if (position==9) {
+                        intent = new Intent(MainActivity.this, FindworkActivity.class);
                     }
+                    Bundle bundle = new Bundle();
+                    bundle.putString("title",rowsBeanList.get(position).getServiceName());
+                    bundle.putString("url",url);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
                 });
             }
         }
@@ -175,15 +176,20 @@ public class MainActivity extends AppCompatActivity {
 
         EditText search = findViewById(R.id.search_news_input);
         String search_text = search.getText().toString();
+        if (search_text.equals("新闻")){
+            search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+                    if ((actionId == EditorInfo.IME_ACTION_UNSPECIFIED || actionId == EditorInfo.IME_ACTION_SEARCH) && keyEvent != null) {
+                        //点击搜索要做的操作
+                        startActivity(new Intent(MainActivity.this,XinwenActivity.class));
+                        return true;
+                    }
+                    return false;
+                }
+            });
 
-        ImageView sousuo = findViewById(R.id.imageView_main);
-        sousuo.setOnClickListener(v -> {
-            if (search_text.equals("新闻")){
-                startActivity(new Intent(MainActivity.this,XinwenActivity.class));
-            }
-        });
-
-
+        }
         //初始化新闻列表
         initnewslist();
         //初始化导航栏
@@ -275,7 +281,6 @@ public class MainActivity extends AppCompatActivity {
                 public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                     if (response.isSuccessful()) {
                         String result2 = response.body().string();
-                        Log.i("请求成功", result2);
 
                         //  runOnUiThread() 创建子线程用于更新UI
 

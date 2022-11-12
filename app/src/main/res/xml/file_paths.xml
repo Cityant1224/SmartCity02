@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    代表内部存储的files目录-->
+    <files-path name="files-path" path="path"/>
+<!--    代表外部存储(sdcard)的cache目录-->
+    <cache-path name="cache-path" path="path" />
+<!--    代表app的外部存储的根目录-->
+    <external-path name="external-path" path="path" />
+<!--    代表app外部缓存区域的根目录-->
+    <external-cache-path name="external-cache-path" path="path" />
+<!--    代表app外部存储媒体区域的根目录-->
+    <external-media-path name="external-media-path" path="path" />
+</paths>

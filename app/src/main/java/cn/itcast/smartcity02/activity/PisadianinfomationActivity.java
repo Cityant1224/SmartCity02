@@ -61,24 +61,24 @@ public class PisadianinfomationActivity extends AppCompatActivity {
                     // 设置适配器
                     foodlistView.setAdapter(adapter);
 
-                    adapter.setItemClickListener(new PisadianinformationAdapter.MyItemClickListener() {
-                        @Override
-                        public void onItemClick(View v, int position) {
-                            Intent intent = null;
-                            if (position == 0) {
-                                intent = new Intent(PisadianinfomationActivity.this, FirstfoodActivity.class);
-                            } else if (position == 1) {
-                                intent = new Intent(PisadianinfomationActivity.this, FirstfoodActivity.class);
-                            } else if (position == 2) {
-                                intent = new Intent(PisadianinfomationActivity.this, FirstfoodActivity.class);
-                            } else if (position == 3) {
-                                intent = new Intent(PisadianinfomationActivity.this, FirstfoodActivity.class);
-                            } else if (position == 4) {
-                                intent = new Intent(PisadianinfomationActivity.this, FirstfoodActivity.class);
-                            }
-                            startActivity(intent);
-                        }
-                    });
+//                    adapter.setItemClickListener(new PisadianinformationAdapter.MyItemClickListener() {
+//                        @Override
+//                        public void onItemClick(View v, int position) {
+//                            Intent intent = null;
+//                            if (position == 0) {
+//                                intent = new Intent(PisadianinfomationActivity.this, FirstfoodActivity.class);
+//                            } else if (position == 1) {
+//                                intent = new Intent(PisadianinfomationActivity.this, FirstfoodActivity.class);
+//                            } else if (position == 2) {
+//                                intent = new Intent(PisadianinfomationActivity.this, FirstfoodActivity.class);
+//                            } else if (position == 3) {
+//                                intent = new Intent(PisadianinfomationActivity.this, FirstfoodActivity.class);
+//                            } else if (position == 4) {
+//                                intent = new Intent(PisadianinfomationActivity.this, FirstfoodActivity.class);
+//                            }
+//                            startActivity(intent);
+//                        }
+//                    });
                 }
             }
         };
@@ -125,7 +125,7 @@ public class PisadianinfomationActivity extends AppCompatActivity {
             Button gotopay = findViewById(R.id.goto_pay);
 
             //购物车点击事件
-            shopping_car.setOnClickListener(v -> onPopup());
+//            shopping_car.setOnClickListener(v -> onPopup());
 
             //结算点击事件
             gotopay.setOnClickListener(v -> {
